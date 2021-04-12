@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 导航 -->
-    <Header></Header>
+    <Header :cur="1"></Header>
     <!-- 中间内容 -->
     <div class="m-main-padded-tb">
       <div class="ui container">
@@ -29,7 +29,7 @@
                                 title
                             </h3>
                             <p>内容</p>
-                            <div class="ui grid  ">
+                            <div class="ui grid  stackable">
                                 <div class="left aligned eleven wide column">
                                     <div class="ui mini horizontal link list">
                                         <div class="item">
@@ -63,7 +63,7 @@
                                 title
                             </h3>
                             <p>内容</p>
-                            <div class="ui grid">
+                            <div class="ui stackable grid">
                                 <div class="left aligned eleven wide column">
                                     <div class="ui horizontal link list">
                                         <div class="item">
