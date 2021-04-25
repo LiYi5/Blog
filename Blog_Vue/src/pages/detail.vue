@@ -43,10 +43,21 @@
 <script>
 import Footer from '../components/footer.vue'
 import Header from '../components/header.vue'
+import {getNot} from '../mock/index'
 export default {
   components: {
     Footer,
     Header
+  },
+  mounted () {
+    this.getInfo()
+  },
+  methods: {
+    getInfo () {
+      getNot({}).then(res => {
+        console.log(res.data)
+      })
+    }
   }
 }
 </script>
