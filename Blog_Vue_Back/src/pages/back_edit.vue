@@ -16,7 +16,7 @@
       <form class="ui left aligned segment form">
         <div class="field">
         <div class="ui left  labeled input">
-          <div class="ui selection compact simple teal basic dropdown label">
+          <div class="ui selection compact teal basic dropdown label">
             <input type="hidden" value="原创">
             <i class="dropdown icon"></i>
             <div class="text">原创</div>
@@ -37,7 +37,7 @@
            <div class="field">
              <div class="ui left labeled input">
                <label class="ui teal basic label compact">分类</label>
-                  <div class="ui fluid selection simple dropdown">
+                  <div class="ui fluid selection dropdown">
                     <input type="hidden" name="type">
                     <i class="dropdown icon"></i>
                     <div class="default text">分类</div>
@@ -49,9 +49,9 @@
              </div>
            </div>
            <div class="field">
-             <div class="ui left labeled input" @click="add()">
+             <div class="ui left labeled input">
                <label class="ui teal basic label action">标签</label>
-                  <div class="ui selection simple mu dropdown fluid search" >
+                  <div class="ui selection dropdown fluid search multiple ">
                     <input type="hidden" name="tag">
                     <i class="dropdown icon"></i>
                     <div class="default text">标签</div>
@@ -108,13 +108,16 @@ export default {
     Footer,
     Header
   },
+  mounted () {
+    this.dropdown()
+  },
   data () {
     return {
       content: ''
     }
   },
   methods: {
-    add (item) {
+    dropdown () {
       $('.ui.dropdown').dropdown()
     }
   }

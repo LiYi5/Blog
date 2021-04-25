@@ -1,15 +1,7 @@
 <template>
-  <div>
+  <div class="main_c">
     <!-- 导航 -->
     <Header :cur=1></Header>
-    <div class="ui attached menu">
-     <div class="ui container">
-       <div class="right menu">
-        <a href="" class="item">发布</a>
-         <a href="" class="item active teal">列表</a>
-       </div>
-     </div>
-    </div>
     <!-- 中间内容 -->
     <div class="m-main-padded-tb">
       <div class="ui container">
@@ -19,7 +11,7 @@
             <input  type="text" name="title" placeholder="标题">
           </div>
           <div class="field">
-            <div class="ui selection simple dropdown">
+            <div class="ui selection dropdown">
               <input type="hidden" name="type">
               <i class="dropdown icon"></i>
               <div class="default text">分类</div>
@@ -59,8 +51,8 @@
             <td>是</td>
             <td>2021-04-06 09：45</td>
             <td>
-              <a href="#" class="ui mini teal basic button">编辑</a>
-              <a href="#" class="ui mini red bsic button">删除</a>
+              <a class="ui mini teal basic button">编辑</a>
+              <a class="ui mini red bsic button">删除</a>
             </td>
           </tr>
         </tbody>
@@ -73,7 +65,7 @@
                 <a class="item">下一页
                 </a>
               </div>
-              <a href="" class="ui right floated teal basic button">新增</a>
+              <a class="ui right floated teal basic button" @click="goAddBlog">新增</a>
             </th>
           </tr>
         </tfoot>
@@ -90,6 +82,7 @@
 <script>
 import Footer from '../components/footer.vue'
 import Header from '../components/header.vue'
+import $ from 'jquery'
 export default {
   components: {
     Footer,
@@ -99,12 +92,26 @@ export default {
     return {
     }
   },
+  mounted () {
+    this.dropdown()
+  },
   methods: {
+    dropdown () {
+      $('.ui.dropdown').dropdown()
+    },
+    goAddBlog () {
+      this.$router.push({path: '/edit'})
+    }
   }
 }
 </script>
 
 <style lang="less" scoped>
+.foot_b{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
 .black-text{
   color: #333!important;
 }

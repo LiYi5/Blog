@@ -3,20 +3,16 @@
       <div class="ui container">
         <div class="ui inverted secondary menu stackable">
           <h2 class="ui teal header item">管理后台</h2>
-          <a href="#" class="item" :class="{'active':+this.$props.cur == 1, 'mobile-hid': menuClick === true}"><i class="home icon"></i>博客</a>
-          <a href="#" class="item" :class="{'active':+this.$props.cur == 2, 'mobile-hid': menuClick === true}"> <i class="idea icon"></i>分类</a>
-          <a href="#" class="item" :class="{'active':+this.$props.cur == 3, 'mobile-hid': menuClick === true}"><i class="tags icon"></i>标签</a>
-          <div class="right menu mobile-hid">
-           <div class="ui simple dropdown item">
-             <div class="text">
-                <img class="ui avatar image" src="../assets/logo.png"  alt="">
+          <a class="item" :class="{'active':+this.$props.cur == 1, 'mobile-hid': menuClick === true}" @click="goHome"><i class="home icon" ></i>博客</a>
+          <a class="item" :class="{'active':+this.$props.cur == 2, 'mobile-hid': menuClick === true}" @click="goTypes"><i class="idea icon" ></i>分类</a>
+          <a class="item" :class="{'active':+this.$props.cur == 3, 'mobile-hid': menuClick === true}" @click="goTags"><i class="tags icon"></i>标签</a>
+          <div class="right menu" :class="menuClick?'mobile-hid':''">
+           <div class="ui labeled dropdown item">
+             <img class="ui avatar image" src="../assets/logo.png"  alt="">
                  课程
-             </div>
               <i class="dropdown icon"></i>
               <div class="menu">
-                  <div class="item">语文</div>
-                  <div class="item">英语</div>
-                  <div class="item">数学</div>
+                  <div class="item" id="logout" @click="logout">注销</div>
               </div>
           </div>
           </div>
@@ -27,6 +23,7 @@
 </template>
 
 <script>
+import {getLogout} from '../mock/index'
 export default {
   props: {
     cur: Number
@@ -39,6 +36,27 @@ export default {
   methods: {
     showlist () {
       this.menuClick = !this.menuClick
+    },
+    logout () {
+      getLogout().then(res => {
+        console.log(res)
+        if (res.code === '1') {
+          this.$router.replace({path: '/'})
+          history.pushState(null, null, document.URL)
+          window.addEventListener('popstate', function (e) {
+            history.pushState(null, null, document.URL)
+          }, false)
+        }
+      })
+    },
+    goHome () {
+      this.$router.push({path: '/home'})
+    },
+    goTypes () {
+      this.$router.push({path: '/types'})
+    },
+    goTags () {
+      this.$router.push({path: '/tags'})
     }
   }
 }
