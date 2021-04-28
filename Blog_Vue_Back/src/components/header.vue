@@ -2,10 +2,10 @@
     <div class="ui inverted attached segment m-padded-tb-mini m-shadow-s">
       <div class="ui container">
         <div class="ui inverted secondary menu stackable">
-          <h2 class="ui teal header item">管理后台</h2>
+          <h2 class="ui teal header item">个人Blog管理后台</h2>
           <a class="item" :class="{'active':+this.$props.cur == 1, 'mobile-hid': menuClick === true}" @click="goHome"><i class="home icon" ></i>博客</a>
           <a class="item" :class="{'active':+this.$props.cur == 2, 'mobile-hid': menuClick === true}" @click="goTypes"><i class="idea icon" ></i>分类</a>
-          <a class="item" :class="{'active':+this.$props.cur == 3, 'mobile-hid': menuClick === true}" @click="goTags"><i class="tags icon"></i>标签</a>
+          <!-- <a class="item" :class="{'active':+this.$props.cur == 3, 'mobile-hid': menuClick === true}" @click="goTags"><i class="tags icon"></i>标签</a> -->
           <div class="right menu" :class="menuClick?'mobile-hid':''">
            <div class="ui labeled dropdown item">
              <img class="ui avatar image" src="../assets/logo.png"  alt="">

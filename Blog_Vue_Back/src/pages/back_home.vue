@@ -22,13 +22,7 @@
             </div>
           </div>
           <div class="field">
-            <div class="ui checkbox">
-              <input type="checkbox" id="recommend" name="recommend">
-              <label for="recommend">推荐</label>
-            </div>
-          </div>
-          <div class="field">
-            <button @click="searchBlog" class="ui mini teal basic button"><i class="search icon"></i>搜索</button>
+            <button @click="searchBlog()" class="ui mini teal basic button"><i class="search icon"></i>搜索</button>
           </div>
         </div>
       </form>
@@ -44,27 +38,27 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="item in blogList" :key="item.title">
+          <tr v-for="item in blogList" :key="item.id">
             <td>{{item.id}}</td>
             <td>{{item.title}}</td>
-            <td>{{item.type.name}}</td>
+            <td>{{item.name}}</td>
             <td>{{item.recommend === true?"是":"否"}}</td>
-            <td>{{item.updateTime}}</td>
+            <td>{{rTime(item.update_time)}}</td>
             <td>
-              <a class="ui mini teal basic button">编辑</a>
-              <a class="ui mini red bsic button">删除</a>
+              <a class="ui mini teal basic button" @click="editbtn(item)">编辑</a>
+              <a class="ui mini red bsic button" @click="deletebtn(item)">删除</a>
             </td>
           </tr>
         </tbody>
         <tfoot>
           <tr>
             <th colspan="6">
-              <div class="ui pagination menu">
-                <a class="item">上一页
+               <div class="ui pagination menu">
+                <a class="item" v-show="this.page > 1" @click="getPreBlogslist">上一页
                 </a>
-                <a class="item">第 {{page}} 页
-                </a>
-                <a class="item">下一页
+                <div class="item">第 {{page}} 页
+                </div>
+                <a class="item" v-show="(this.allblognumber-this.page*7)>0" @click="getNextBlogslist">下一页
                 </a>
               </div>
               <a class="ui right floated teal basic button" @click="goAddBlog">新增</a>
@@ -78,6 +72,16 @@
     <div>
       <Footer></Footer>
     </div>
+        <el-dialog
+  :visible.sync="centerDialogVisible"
+  width="30%"
+  center>
+  <span>确认删除吗？</span>
+  <span slot="footer" class="dialog-footer">
+    <el-button @click="centerDialogVisible = false">取 消</el-button>
+    <el-button type="primary" @click="deleteBlog">确 定</el-button>
+  </span>
+</el-dialog>
   </div>
 </template>
 
@@ -85,57 +89,108 @@
 import Footer from '../components/footer.vue'
 import Header from '../components/header.vue'
 import $ from 'jquery'
-import {getBlogs, getAllTypes} from '../mock/index'
+import {getBlogs, getAllTypes, getTotalBlogs, deleteBlogs} from '../mock/index'
 export default {
   components: {
     Footer,
     Header
   },
+  inject: ['reload'],
   data () {
     return {
       blogList: {},
       page: 1,
       title: '',
+      centerDialogVisible: false,
       curType: null,
-      allTypeList: {}
+      allTypeList: {},
+      allblognumber: Number,
+      deleteBlogId: null
     }
   },
   mounted () {
     this.getBlogList()
     this.getAllTypeList()
+    this.showMsg('addBlog', '添加Blog成功')
+    this.showMsg('updateBlog', '更新Blog成功')
     this.dropdown()
   },
   methods: {
-    searchBlog () {
+    showMsg (info, msg) {
+      if (localStorage.getItem(info)) {
+        this.$message({
+          message: msg,
+          type: 'success',
+          duration: 1000,
+          offset: 100,
+          center: true
+        })
+        localStorage.removeItem(info)
+      }
+    },
+    editbtn (item) {
+      this.$router.push({path: '/edit', query: {btnTagname: '修改', blogInfo: JSON.stringify(item)}})
+    },
+    deletebtn (item) {
+      this.centerDialogVisible = true
+      this.deleteBlogId = item.id
+    },
+    deleteBlog () {
+      deleteBlogs({id: this.deleteBlogId}).then((res) => {
+        this.centerDialogVisible = false
+        this.reload()
+        if (res.code === '1') {
+          this.$message({
+            message: res.msg,
+            type: 'success',
+            duration: 1000,
+            offset: 100,
+            center: true
+          })
+        } else {
+          this.$message({
+            message: res.msg,
+            type: 'error',
+            duration: 1000,
+            offset: 100,
+            center: true
+          })
+        }
+      })
+    },
+    getSumBlog () {
+      getTotalBlogs().then(res => {
+        this.allblognumber = res.data
+      })
+    },
+    rTime (date) {
+      var d = new Date(date).toJSON()
+      return new Date(new Date(d) + 8 * 3600 * 1000).toISOString().replace(/T/g, ' ').replace(/\.[\d]{3}Z/, '')
+    },
+    searchBlog (newpage = this.page) {
       const Type = this.$refs.curType.innerText
-      let obj = {}
       if (this.title === '' && Type === '分类') {
-        this.getBlogList()
+        getBlogs({page: newpage}).then(res => {
+          this.blogList = res.data
+        })
       }
 
       if (this.title !== '' && Type === '分类') {
-        obj.title = this.title
-        getBlogs({page: this.page, blogString: obj}).then(res => {
-          this.blogList = res.data.content
+        getBlogs({page: newpage, title: this.title}).then(res => {
+          this.blogList = res.data
         })
-        obj = {}
       }
       if (this.title === '' && Type !== '分类') {
-        obj.Type = {}
-        obj.Type.name = Type
-        getBlogs({page: this.page, blogString: obj}).then(res => {
-          console.log('data', res.data)
+        getBlogs({page: newpage, type: Type}).then(res => {
+          this.blogList = res.data
         })
-        obj = {}
+        this.$refs.curType.innerText = null
       }
       if (this.title !== '' && Type !== '分类') {
-        obj.title = this.title
-        obj.Type = {}
-        obj.Type.name = Type
-        getBlogs({page: this.page, blogString: obj}).then(res => {
-          console.log('data', res.data)
+        getBlogs({page: newpage, title: this.title, type: Type}).then(res => {
+          this.blogList = res.data
         })
-        obj = {}
+        this.$refs.curType.innerText = null
       }
     },
     dropdown () {
@@ -148,11 +203,18 @@ export default {
     },
     getBlogList () {
       getBlogs({page: this.page}).then(res => {
-        this.blogList = res.data.content
+        this.blogList = res.data
       })
+      this.getSumBlog()
     },
     goAddBlog () {
-      this.$router.push({path: '/edit'})
+      this.$router.push({path: '/edit', query: {btnTagname: '新增'}})
+    },
+    getPreBlogslist () {
+      this.searchBlog(--this.page)
+    },
+    getNextBlogslist () {
+      this.searchBlog(++this.page)
     }
   }
 }

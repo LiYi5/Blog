@@ -62,7 +62,7 @@
 import $ from 'jquery'
 import Footer from '../components/footer.vue'
 import Header from '../components/header.vue'
-import {getTypes, deleteTypes} from '../mock/index'
+import {getTypes, deleteTypes, getTotalTypes} from '../mock/index'
 export default {
   components: {
     Footer,
@@ -135,18 +135,23 @@ export default {
     },
     getTypeslist () {
       getTypes({page: this.page}).then(res => {
-        this.typeList = res.data.content
-        this.alltypenumber = res.data.totalElements
+        this.typeList = res.data
+      })
+      this.getSumTypes()
+    },
+    getSumTypes () {
+      getTotalTypes().then(res => {
+        this.alltypenumber = res.data
       })
     },
     getPreTypeslist () {
       getTypes({page: --this.page}).then(res => {
-        this.typeList = res.data.content
+        this.typeList = res.data
       })
     },
     getNextTypeslist () {
       getTypes({page: ++this.page}).then(res => {
-        this.typeList = res.data.content
+        this.typeList = res.data
       })
     }
   }

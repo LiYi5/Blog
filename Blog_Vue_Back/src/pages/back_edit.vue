@@ -1,37 +1,19 @@
 <template>
   <div>
     <!-- 导航 -->
-    <Header :cur=2></Header>
-    <div class="ui attached menu">
-     <div class="ui container">
-       <div class="right menu">
-        <a href="" class="item active teal">发布</a>
-         <a href="" class="item">列表</a>
-       </div>
-     </div>
-    </div>
+    <Header :cur=1></Header>
     <!-- 中间内容 -->
     <div class="m-main-padded-tb">
       <div class="ui container">
       <form class="ui left aligned segment form">
         <div class="field">
-        <div class="ui left  labeled input">
-          <div class="ui selection compact teal basic dropdown label">
-            <input type="hidden" value="原创">
-            <i class="dropdown icon"></i>
-            <div class="text">原创</div>
-            <div class="menu">
-              <div class="item" data-value="原创">原创</div>
-              <div class="item" data-value="转载">转载</div>
-              <div class="item" data-value="翻译">翻译</div>
-            </div>
-          </div>
-              <input type="text" name="title" placeholder="标题">
+        <div class="ui left labeled input center" style="width:300px;">
+              <input type="text" v-model="curBlog.title" placeholder="标题">
         </div>
       </div>
          <div class="field">
            <!-- <textarea placeholder="博客内容" name="content"></textarea> -->
-           <mavon-editor style="height:400px;z-index:1" v-model="content" placeholder="博客内容" />
+           <mavon-editor style="height:400px;z-index:1" v-model="curBlog.content" placeholder="博客内容" />
          </div>
          <div class="two fields">
            <div class="field">
@@ -40,37 +22,39 @@
                   <div class="ui fluid selection dropdown">
                     <input type="hidden" name="type">
                     <i class="dropdown icon"></i>
-                    <div class="default text">分类</div>
+                    <div class="default text" ref="type">分类</div>
                     <div class="menu">
-                      <div class="item" data-value="1">错误日志</div>
-                      <div class="item" data-value="2">开发手册</div>
+                    <div class="item" v-for="item in allTypeList" :key="item.id">
+                        <div>{{item.name}}</div>
+                      </div>
                     </div>
                   </div>
              </div>
            </div>
-           <div class="field">
+           <!-- <div class="field">
              <div class="ui left labeled input">
                <label class="ui teal basic label action">标签</label>
-                  <div class="ui selection dropdown fluid search multiple ">
+                  <div class="ui selection dropdown fluid search">
                     <input type="hidden" name="tag">
                     <i class="dropdown icon"></i>
-                    <div class="default text">标签</div>
+                    <div class="default text" ref="type">标签</div>
                     <div class="menu">
-                      <div class="item" data-value="1">java</div>
-                      <div class="item" data-value="2">python</div>
+                      <div class="item" v-for="item in allTagList" :key="item.id">
+                        <div>{{item.name}}</div>
+                      </div>
                     </div>
                   </div>
              </div>
-           </div>
+           </div> -->
            <div class="field"></div>
          </div>
          <div class="field">
            <div class="ui left labeled input">
              <label class="ui teal basic label">首图</label>
-              <input type="text" name="indexPicture" placeholder="首图引用地址">
+              <input type="text" v-model="curBlog.first_picture" placeholder="首图引用地址">
            </div>
          </div>
-         <div class="inline fields">
+         <!-- <div class="inline fields">
            <div class="field">
              <div class="ui checkbox">
                <input type="checkbox" id="recommend" name="recommend" checked class="hidden">
@@ -83,11 +67,10 @@
                <label for="shareInfo">转载</label>
              </div>
            </div>
-         </div>
+         </div> -->
          <div class="ui right aligned container">
-           <button class="ui button" type="button" @click="widow.history.go(-1)">返回</button>
-           <button class="ui secondary button">保持</button>
-           <button class="ui teal button">发布</button>
+           <button class="ui button" type="button" @click="back">返回</button>
+           <button class="ui teal button" @click="submitBlog">{{this.$route.query.btnTagname}}</button>
          </div>
       </form>
       </div>
@@ -102,21 +85,100 @@
 <script>
 import Footer from '../components/footer.vue'
 import Header from '../components/header.vue'
+import {getAllTypes, postNewBlogs, updateBlogs} from '../mock/index'
 import $ from 'jquery'
 export default {
   components: {
     Footer,
     Header
   },
-  mounted () {
-    this.dropdown()
-  },
   data () {
     return {
-      content: ''
+      allTypeList: {},
+      // allTagList: {},
+      curBlog: {}
     }
   },
+  mounted () {
+    this.dropdown()
+    this.getAllTypeList()
+    // this.getAllTagList()
+    this.moutBlog()
+  },
   methods: {
+    submitBlog () {
+      if (this.curBlog.title === '' || this.curBlog.title === undefined) {
+        this.$message({
+          message: '标题不能为空',
+          type: 'error',
+          duration: 1000,
+          offset: 100,
+          center: true
+        })
+      } else {
+        if (this.$refs.type.innerText !== '分类') {
+          this.curBlog.typeId = this.finTypeidByname(this.$refs.type.innerText)
+        }
+        if (this.$route.query.btnTagname === '修改') {
+          updateBlogs(this.curBlog).then(res => {
+            if (res.code === '1') {
+              this.$router.go(-1)
+              localStorage.setItem('updateBlog', true)
+            } else {
+              this.$message({
+                message: res.msg,
+                type: 'error',
+                duration: 1000,
+                offset: 100,
+                center: true
+              })
+            }
+          })
+        } else if (this.$route.query.btnTagname === '新增') {
+          postNewBlogs(this.curBlog).then(res => {
+            if (res.code === '1') {
+              this.$router.go(-1)
+              localStorage.setItem('addBlog', true)
+            } else {
+              this.$message({
+                message: res.msg,
+                type: 'error',
+                duration: 1000,
+                offset: 100,
+                center: true
+              })
+            }
+          })
+        }
+      }
+    },
+    finTypeidByname (name) {
+      for (let i = 0; i < this.allTypeList.length; i++) {
+        if (this.allTypeList[i].name === name) {
+          return this.allTypeList[i].id
+        }
+      }
+    },
+    moutBlog () {
+      if (this.$route.query.btnTagname === '修改') {
+        this.curBlog = JSON.parse(this.$route.query.blogInfo)
+      } else if (this.$route.query.btnTagname === '新增') {
+        this.curBlog = {}
+      }
+    },
+    getAllTypeList () {
+      getAllTypes().then(res => {
+        this.allTypeList = res.data
+      })
+    },
+    // getAllTagList () {
+    //   getAllTags().then(res => {
+    //     this.allTagList = res.data
+    //   })
+    // },
+    back () {
+      window.history.go(-1)
+    },
     dropdown () {
       $('.ui.dropdown').dropdown()
     }

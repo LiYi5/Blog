@@ -48,10 +48,18 @@ export const postNewTypes =(params)=>post('/Type/newType',params)
 export const deleteTypes =(params)=>post('/Type/deleteType',params)
 export const updateTypes =(params)=>post('/Type/updateType',params)
 export const getAllTypes =()=>get('/Type/AllTypes')
+export const getTotalTypes =()=>get('/Type/totalTypes')
 
 export const getTags =(params)=>get('/Tag/Tags',params)
 export const postNewTags =(params)=>post('/Tag/newTag',params)
 export const deleteTags =(params)=>post('/Tag/deleteTag',params)
 export const updateTags =(params)=>post('/Tag/updateTag',params)
+export const getAllTags =()=>get('/Tag/AllTags')
+export const getTotalTags =()=>get('/Tag/totalTags')
+
 
 export const getBlogs =(params)=>get('/Blog/Blogs',params)
+export const getTotalBlogs =()=>get('/Blog/totalBlogs')
+export const deleteBlogs =(params)=>post('/Blog/deleteBlog',params)
+export const postNewBlogs =(params)=>post('/Blog/newBlog',params)
+export const updateBlogs =(params)=>post('/Blog/updateBlog',params)

@@ -62,7 +62,7 @@
 import $ from 'jquery'
 import Footer from '../components/footer.vue'
 import Header from '../components/header.vue'
-import {getTags, deleteTags} from '../mock/index'
+import {getTags, deleteTags, getTotalTags} from '../mock/index'
 export default {
   components: {
     Footer,
@@ -135,18 +135,23 @@ export default {
     },
     getTagslist () {
       getTags({page: this.page}).then(res => {
-        this.tagList = res.data.content
-        this.alltagnumber = res.data.totalElements
+        this.tagList = res.data
+      })
+      this.getSumTag()
+    },
+    getSumTag () {
+      getTotalTags().then(res => {
+        this.alltagnumber = res.data
       })
     },
     getPreTagslist () {
       getTags({page: --this.page}).then(res => {
-        this.tagList = res.data.content
+        this.tagList = res.data
       })
     },
     getNextTagslist () {
       getTags({page: ++this.page}).then(res => {
-        this.tagList = res.data.content
+        this.tagList = res.data
       })
     }
   }

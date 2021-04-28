@@ -2,14 +2,6 @@
   <div>
     <!-- 导航 -->
     <Header :cur=3></Header>
-    <div class="ui attached menu">
-     <div class="ui container">
-       <div class="right menu">
-        <a href="" class="item active teal">发布</a>
-         <a href="" class="item">列表</a>
-       </div>
-     </div>
-    </div>
     <!-- 中间内容 -->
     <div class="m-main-padded-tb">
       <div class="ui container">
