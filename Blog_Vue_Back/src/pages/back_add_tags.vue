@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 导航 -->
-    <Header :cur=2></Header>
+    <Header :cur=3></Header>
     <div class="ui attached menu">
      <div class="ui container">
        <div class="right menu">
@@ -19,12 +19,12 @@
          <div class="field">
            <div class="ui left labeled input">
              <label class="ui teal basic label">名称</label>
-              <input type="text" v-model="type_name" placeholder="分类名称">
+              <input type="text" v-model="tag_name" placeholder="分类名称">
            </div>
          </div>
          <div class="ui right aligned container">
            <button class="ui button" type="button" @click="back">返回</button>
-           <button class="ui teal button submit" @click="submitType()">{{this.$route.query.btnTypename}}</button>
+           <button class="ui teal button submit" @click="submitTag">{{this.$route.query.btnTagname}}</button>
          </div>
       </form>
       </div>
@@ -40,26 +40,26 @@
 import Footer from '../components/footer.vue'
 import Header from '../components/header.vue'
 import $ from 'jquery'
-import {postNewTypes, updateTypes} from '../mock/index'
+import {postNewTags, updateTags} from '../mock/index'
 export default {
   components: {
     Footer,
     Header
   },
   mounted () {
-    this.mountTypeName()
+    this.mountTagName()
     this.dropdown()
   },
   data () {
     return {
       content: '',
-      type_name: null
+      tag_name: null
     }
   },
   methods: {
-    mountTypeName () {
-      if (this.$route.query.typename !== undefined) {
-        this.type_name = this.$route.query.typename
+    mountTagName () {
+      if (this.$route.query.tagname !== undefined) {
+        this.tag_name = this.$route.query.tagname
       }
     },
     back () {
@@ -68,8 +68,8 @@ export default {
     dropdown () {
       $('.ui.dropdown').dropdown()
     },
-    submitType () {
-      if (this.type_name === null) {
+    submitTag () {
+      if (this.tag_name === null) {
         this.$message({
           message: '分类名称不能为空',
           type: 'error',
@@ -78,11 +78,11 @@ export default {
           center: true
         })
       } else {
-        if (this.$route.query.btnTypename === '增加') {
-          postNewTypes({name: this.type_name}).then((res) => {
+        if (this.$route.query.btnTagname === '增加') {
+          postNewTags({name: this.tag_name}).then((res) => {
             if (res.code === '1') {
               this.$router.go(-1)
-              localStorage.setItem('addType', true)
+              localStorage.setItem('addTag', true)
             } else {
               this.$message({
                 message: res.msg,
@@ -93,11 +93,11 @@ export default {
               })
             }
           })
-        } else if (this.$route.query.btnTypename === '修改') {
-          updateTypes({id: this.$route.query.typeid, name: this.type_name}).then((res) => {
+        } else if (this.$route.query.btnTagname === '修改') {
+          updateTags({id: this.$route.query.tagid, name: this.tag_name}).then((res) => {
             if (res.code === '1') {
               this.$router.go(-1)
-              localStorage.setItem('editType', true)
+              localStorage.setItem('editTag', true)
             } else {
               this.$message({
                 message: res.msg,

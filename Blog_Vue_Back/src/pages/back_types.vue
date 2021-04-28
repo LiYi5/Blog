@@ -71,7 +71,7 @@ export default {
   inject: ['reload'],
   data () {
     return {
-      typeList: [],
+      typeList: {},
       page: 1,
       centerDialogVisible: false,
       deleteTypeId: null,
@@ -79,8 +79,8 @@ export default {
     }
   },
   mounted () {
-    this.getTypeslist()
     this.dropdown()
+    this.getTypeslist()
     this.showMsg('addType', '添加分类类型成功')
     this.showMsg('editType', '修改分类类型成功')
   },
@@ -101,7 +101,7 @@ export default {
       }
     },
     editbtn (item) {
-      this.$router.push({path: '/addTypes', query: {btnname: '修改', typename: item.name, typeid: item.id}})
+      this.$router.push({path: '/addTypes', query: {btnTypename: '修改', typename: item.name, typeid: item.id}})
     },
     deletebtn (item) {
       this.centerDialogVisible = true
@@ -131,7 +131,7 @@ export default {
       })
     },
     goAddTypes () {
-      this.$router.push({path: '/addTypes', query: {btnname: '增加'}})
+      this.$router.push({path: '/addTypes', query: {btnTypename: '增加'}})
     },
     getTypeslist () {
       getTypes({page: this.page}).then(res => {

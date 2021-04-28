@@ -14,7 +14,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(item) in typeList" :key="item.name">
+          <tr v-for="(item) in tagList" :key="item.name">
             <td>{{item.id}}</td>
             <td>{{item.name}}</td>
             <td>
@@ -27,14 +27,14 @@
           <tr>
             <th colspan="6">
               <div class="ui pagination menu">
-                <a class="item" v-show="this.page > 1" @click="getPreTypeslist">上一页
+                <a class="item" v-show="this.page > 1" @click="getPreTagslist">上一页
                 </a>
                 <div class="item">第 {{page}} 页
                 </div>
-                <a class="item" v-show="(this.alltypenumber-this.page*7)>0" @click="getNextTypeslist">下一页
+                <a class="item" v-show="(this.alltagnumber-this.page*7)>0" @click="getNextTagslist">下一页
                 </a>
               </div>
-              <div class="ui right floated teal basic button" @click="goAddTypes">新增</div>
+              <div class="ui right floated teal basic button" @click="goAddTags">新增</div>
             </th>
           </tr>
         </tfoot>
@@ -48,7 +48,7 @@
   <span>确认删除吗？</span>
   <span slot="footer" class="dialog-footer">
     <el-button @click="centerDialogVisible = false">取 消</el-button>
-    <el-button type="primary" @click="deleteType">确 定</el-button>
+    <el-button type="primary" @click="deleteTag">确 定</el-button>
   </span>
 </el-dialog>
     <!-- 底部 -->
@@ -62,7 +62,7 @@
 import $ from 'jquery'
 import Footer from '../components/footer.vue'
 import Header from '../components/header.vue'
-import {getTypes, deleteTypes} from '../mock/index'
+import {getTags, deleteTags} from '../mock/index'
 export default {
   components: {
     Footer,
@@ -71,18 +71,18 @@ export default {
   inject: ['reload'],
   data () {
     return {
-      typeList: [],
+      tagList: [],
       page: 1,
       centerDialogVisible: false,
-      deleteTypeId: null,
-      alltypenumber: Number
+      deleteTagId: null,
+      alltagnumber: Number
     }
   },
   mounted () {
-    this.getTypeslist()
+    this.getTagslist()
     this.dropdown()
-    this.showMsg('addType', '添加分类类型成功')
-    this.showMsg('editType', '修改分类类型成功')
+    this.showMsg('addTag', '添加标签名称成功')
+    this.showMsg('editTag', '修改标签名称成功')
   },
   methods: {
     dropdown () {
@@ -101,14 +101,14 @@ export default {
       }
     },
     editbtn (item) {
-      this.$router.push({path: '/addTypes', query: {btnname: '修改', typename: item.name, typeid: item.id}})
+      this.$router.push({path: '/addTags', query: {btnTagname: '修改', tagname: item.name, tagid: item.id}})
     },
     deletebtn (item) {
       this.centerDialogVisible = true
-      this.deleteTypeId = item.id
+      this.deleteTagId = item.id
     },
-    deleteType () {
-      deleteTypes({id: this.deleteTypeId}).then((res) => {
+    deleteTag () {
+      deleteTags({id: this.deleteTagId}).then((res) => {
         this.centerDialogVisible = false
         this.reload()
         if (res.code === '1') {
@@ -130,23 +130,23 @@ export default {
         }
       })
     },
-    goAddTypes () {
-      this.$router.push({path: '/addTypes', query: {btnname: '增加'}})
+    goAddTags () {
+      this.$router.push({path: '/addTags', query: {btnTagname: '增加'}})
     },
-    getTypeslist () {
-      getTypes({page: this.page}).then(res => {
-        this.typeList = res.data.content
-        this.alltypenumber = res.data.totalElements
+    getTagslist () {
+      getTags({page: this.page}).then(res => {
+        this.tagList = res.data.content
+        this.alltagnumber = res.data.totalElements
       })
     },
-    getPreTypeslist () {
-      getTypes({page: --this.page}).then(res => {
-        this.typeList = res.data.content
+    getPreTagslist () {
+      getTags({page: --this.page}).then(res => {
+        this.tagList = res.data.content
       })
     },
-    getNextTypeslist () {
-      getTypes({page: ++this.page}).then(res => {
-        this.typeList = res.data.content
+    getNextTagslist () {
+      getTags({page: ++this.page}).then(res => {
+        this.tagList = res.data.content
       })
     }
   }

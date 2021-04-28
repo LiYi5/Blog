@@ -6,6 +6,7 @@ import Login from '../pages/back_login.vue'
 import Types from '../pages/back_types.vue'
 import Tags from '../pages/back_tags.vue'
 import addTypes from '../pages/back_add_types.vue'
+import addTags from '../pages/back_add_tags.vue'
 
 Vue.use(Router)
 
@@ -59,6 +60,14 @@ export default new Router({
         requireAuth: true
       },
       component: Tags
+    },
+    {
+      path: '/addTags',
+      name: 'addTags',
+      meta: {
+        requireAuth: true
+      },
+      component: addTags
     }
   ]
 })

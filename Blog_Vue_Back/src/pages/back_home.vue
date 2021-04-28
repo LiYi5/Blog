@@ -5,19 +5,19 @@
     <!-- 中间内容 -->
     <div class="m-main-padded-tb">
       <div class="ui container">
-      <form class="ui left aligned segment form">
+      <form class="ui left aligned segment secondary form">
         <div class="inline fields">
           <div class="field">
-            <input  type="text" name="title" placeholder="标题">
+            <input  type="text" v-model="title" placeholder="标题">
           </div>
           <div class="field">
             <div class="ui selection dropdown">
-              <input type="hidden" name="type">
               <i class="dropdown icon"></i>
-              <div class="default text">分类</div>
+              <div class="default text" ref="curType">分类</div>
               <div class="menu">
-                <div class="item" data-velue="1">错误日志</div>
-                <div class="item" data-velue="2">开发者手册</div>
+                <div class="item" v-for="item in allTypeList" :key="item.id">
+                  <div >{{item.name}}</div>
+                </div>
               </div>
             </div>
           </div>
@@ -28,11 +28,11 @@
             </div>
           </div>
           <div class="field">
-            <button class="ui mini teal basic button"><i class="search icon"></i>搜索</button>
+            <button @click="searchBlog" class="ui mini teal basic button"><i class="search icon"></i>搜索</button>
           </div>
         </div>
       </form>
-      <table class="ui celled center table">
+      <table class="ui compact teal center table">
         <thead>
           <tr>
             <th></th>
@@ -44,12 +44,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>练习</td>
-            <td>认值</td>
-            <td>是</td>
-            <td>2021-04-06 09：45</td>
+          <tr v-for="item in blogList" :key="item.title">
+            <td>{{item.id}}</td>
+            <td>{{item.title}}</td>
+            <td>{{item.type.name}}</td>
+            <td>{{item.recommend === true?"是":"否"}}</td>
+            <td>{{item.updateTime}}</td>
             <td>
               <a class="ui mini teal basic button">编辑</a>
               <a class="ui mini red bsic button">删除</a>
@@ -61,6 +61,8 @@
             <th colspan="6">
               <div class="ui pagination menu">
                 <a class="item">上一页
+                </a>
+                <a class="item">第 {{page}} 页
                 </a>
                 <a class="item">下一页
                 </a>
@@ -83,6 +85,7 @@
 import Footer from '../components/footer.vue'
 import Header from '../components/header.vue'
 import $ from 'jquery'
+import {getBlogs, getAllTypes} from '../mock/index'
 export default {
   components: {
     Footer,
@@ -90,14 +93,63 @@ export default {
   },
   data () {
     return {
+      blogList: {},
+      page: 1,
+      title: '',
+      curType: null,
+      allTypeList: {}
     }
   },
   mounted () {
+    this.getBlogList()
+    this.getAllTypeList()
     this.dropdown()
   },
   methods: {
+    searchBlog () {
+      const Type = this.$refs.curType.innerText
+      let obj = {}
+      if (this.title === '' && Type === '分类') {
+        this.getBlogList()
+      }
+
+      if (this.title !== '' && Type === '分类') {
+        obj.title = this.title
+        getBlogs({page: this.page, blogString: obj}).then(res => {
+          this.blogList = res.data.content
+        })
+        obj = {}
+      }
+      if (this.title === '' && Type !== '分类') {
+        obj.Type = {}
+        obj.Type.name = Type
+        getBlogs({page: this.page, blogString: obj}).then(res => {
+          console.log('data', res.data)
+        })
+        obj = {}
+      }
+      if (this.title !== '' && Type !== '分类') {
+        obj.title = this.title
+        obj.Type = {}
+        obj.Type.name = Type
+        getBlogs({page: this.page, blogString: obj}).then(res => {
+          console.log('data', res.data)
+        })
+        obj = {}
+      }
+    },
     dropdown () {
       $('.ui.dropdown').dropdown()
+    },
+    getAllTypeList () {
+      getAllTypes().then(res => {
+        this.allTypeList = res.data
+      })
+    },
+    getBlogList () {
+      getBlogs({page: this.page}).then(res => {
+        this.blogList = res.data.content
+      })
     },
     goAddBlog () {
       this.$router.push({path: '/edit'})
