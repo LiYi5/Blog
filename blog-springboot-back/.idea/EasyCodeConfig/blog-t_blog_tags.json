@@ -1,0 +1,27 @@
+{
+  "name" : "TBlogTags",
+  "originTableName" : "t_blog_tags",
+  "comment" : null,
+  "fullColumn" : [ {
+    "name" : "blogsId",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "ktShortType" : "Long",
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "tagsId",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "ktShortType" : "Long",
+    "custom" : false,
+    "ext" : { }
+  } ],
+  "pkColumn" : null,
+  "otherColumn" : null,
+  "savePackageName" : "com.ly",
+  "savePath" : "./src/main/java/com/ly",
+  "saveModelName" : "blog-springboot-back"
+}

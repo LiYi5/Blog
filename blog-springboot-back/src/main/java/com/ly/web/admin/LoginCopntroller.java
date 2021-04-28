@@ -1,8 +1,9 @@
 package com.ly.web.admin;
 
 import com.ly.entity.ApiResult;
-import com.ly.po.User;
-import com.ly.service.UserService;
+import com.ly.entity.TUser;
+
+import com.ly.service.TUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -15,15 +16,17 @@ import javax.servlet.http.HttpSession;
 public class LoginCopntroller {
 
     @Autowired
-    private UserService userService;
+    private TUserService userService;
 
     /**
     用户登录
      */
     @PostMapping("/login")
-    public ApiResult login(@RequestBody User loginuser, HttpSession session){
+    public ApiResult login(@RequestBody TUser loginuser, HttpSession session){
         ApiResult apiResult = new ApiResult();
-        User user = userService.checkkUser(loginuser.getUsername(),loginuser.getPassword());
+        System.out.println(loginuser);
+        TUser user = userService.checkkUser(loginuser.getUsername(),loginuser.getPassword());
+        System.out.println(user);
         if(user != null) {
             user.setPassword(null);
             session.setAttribute("user",user);

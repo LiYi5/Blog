@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ly.dao.TBlogTagsDao">
+
+    <resultMap id="BaseResultMap" type="com.ly.entity.TBlogTags">
+        <!--@Table t_blog_tags-->
+        <result property="blogsId" column="blogs_id" jdbcType="INTEGER"/>
+        <result property="tagsId" column="tags_id" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="BaseResultMap">
+        select
+          blogs_id, tags_id
+        from blog.t_blog_tags
+        where blogs_id = #{blogsId}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BaseResultMap">
+        select
+          blogs_id, tags_id
+        from blog.t_blog_tags
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="BaseResultMap">
+        select
+          blogs_id, tags_id
+        from blog.t_blog_tags
+        <where>
+            <if test="blogsId != null">
+                and blogs_id = #{blogsId}
+            </if>
+            <if test="tagsId != null">
+                and tags_id = #{tagsId}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="blogsId" useGeneratedKeys="true">
+        insert into blog.t_blog_tags()
+        values ()
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update blog.t_blog_tags
+        <set>
+        </set>
+        where blogs_id = #{blogsId}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from blog.t_blog_tags where blogs_id = #{blogsId}
+    </delete>
+
+</mapper>

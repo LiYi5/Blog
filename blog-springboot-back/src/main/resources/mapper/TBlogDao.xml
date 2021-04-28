@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ly.dao.TBlogDao">
+
+    <resultMap id="BaseResultMap" type="com.ly.entity.TBlog">
+        <!--@Table t_blog-->
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="appreciation" column="appreciation" jdbcType="OTHER"/>
+        <result property="commenttabled" column="commenttabled" jdbcType="OTHER"/>
+        <result property="content" column="content" jdbcType="VARCHAR"/>
+        <result property="creatTime" column="creat_time" jdbcType="OTHER"/>
+        <result property="firstPicture" column="first_picture" jdbcType="VARCHAR"/>
+        <result property="flag" column="flag" jdbcType="VARCHAR"/>
+        <result property="published" column="published" jdbcType="OTHER"/>
+        <result property="recommend" column="recommend" jdbcType="OTHER"/>
+        <result property="shareStatement" column="share_statement" jdbcType="OTHER"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="update_time" jdbcType="OTHER"/>
+        <result property="views" column="views" jdbcType="INTEGER"/>
+        <result property="typeId" column="type_id" jdbcType="INTEGER"/>
+        <result property="userId" column="user_id" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="BaseResultMap">
+        select
+          id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id
+        from blog.t_blog
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BaseResultMap">
+        select
+          id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id
+        from blog.t_blog
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="BaseResultMap">
+        select
+          id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id
+        from blog.t_blog
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="appreciation != null">
+                and appreciation = #{appreciation}
+            </if>
+            <if test="commenttabled != null">
+                and commenttabled = #{commenttabled}
+            </if>
+            <if test="content != null and content != ''">
+                and content = #{content}
+            </if>
+            <if test="creatTime != null">
+                and creat_time = #{creatTime}
+            </if>
+            <if test="firstPicture != null and firstPicture != ''">
+                and first_picture = #{firstPicture}
+            </if>
+            <if test="flag != null and flag != ''">
+                and flag = #{flag}
+            </if>
+            <if test="published != null">
+                and published = #{published}
+            </if>
+            <if test="recommend != null">
+                and recommend = #{recommend}
+            </if>
+            <if test="shareStatement != null">
+                and share_statement = #{shareStatement}
+            </if>
+            <if test="title != null and title != ''">
+                and title = #{title}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="views != null">
+                and views = #{views}
+            </if>
+            <if test="typeId != null">
+                and type_id = #{typeId}
+            </if>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into blog.t_blog(appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id)
+        values (#{appreciation}, #{commenttabled}, #{content}, #{creatTime}, #{firstPicture}, #{flag}, #{published}, #{recommend}, #{shareStatement}, #{title}, #{updateTime}, #{views}, #{typeId}, #{userId})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update blog.t_blog
+        <set>
+            <if test="appreciation != null">
+                appreciation = #{appreciation},
+            </if>
+            <if test="commenttabled != null">
+                commenttabled = #{commenttabled},
+            </if>
+            <if test="content != null and content != ''">
+                content = #{content},
+            </if>
+            <if test="creatTime != null">
+                creat_time = #{creatTime},
+            </if>
+            <if test="firstPicture != null and firstPicture != ''">
+                first_picture = #{firstPicture},
+            </if>
+            <if test="flag != null and flag != ''">
+                flag = #{flag},
+            </if>
+            <if test="published != null">
+                published = #{published},
+            </if>
+            <if test="recommend != null">
+                recommend = #{recommend},
+            </if>
+            <if test="shareStatement != null">
+                share_statement = #{shareStatement},
+            </if>
+            <if test="title != null and title != ''">
+                title = #{title},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="views != null">
+                views = #{views},
+            </if>
+            <if test="typeId != null">
+                type_id = #{typeId},
+            </if>
+            <if test="userId != null">
+                user_id = #{userId},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from blog.t_blog where id = #{id}
+    </delete>
+
+    <select id = "queryByBlog" resultMap="BaseResultMap">
+      SELECT *
+      FROM t_blog
+      <where>
+          1 = 1
+          <if test="title != null and title !=''">
+              title = #{title}
+          </if>
+      </where>
+    </select>
+    <select id="queryByType" resultMap="BaseResultMap">
+        SELECT *
+        FROM t_blog,t_type
+        WHERE t_blog.type_id = t_type.id
+        AND t_type.name = #{name}
+    </select>
+
+    <select id="queryAllBlog" resultType="java.util.Map">
+        SELECT *
+        FROM t_blog,t_type
+        WHERE t_blog.type_id = t_type.id
+    </select>
+    <select id="queryBytitleOrType" resultType="java.util.Map">
+        SELECT *
+        FROM t_blog,t_type
+        <where>
+            1 = 1
+            <if test="title != null and title !=''">
+              AND  title = #{title}
+            </if>
+            <if test="name != null and name !=''">
+              AND  name = #{name}
+            </if>
+        </where>
+        and t_blog.type_id = t_type.id
+    </select>
+    <select id="queryByTitle" resultMap="BaseResultMap">
+        SELECT *
+        FROM t_blog
+        WHERE title=#{title}
+    </select>
+</mapper>
