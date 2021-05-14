@@ -97,8 +97,8 @@ public class TBlogServiceImpl implements TBlogService {
     }
 
     @Override
-    public List<TBlog> queryBytitleOrType(Integer page,String title, String type) {
-        PageHelper.startPage(page, 8);
+    public List<TBlog> queryBytitleOrType(Integer page,Integer size,String title, String type) {
+        PageHelper.startPage(page, size);
         List<TBlog> tBlogs = tBlogDao.queryBytitleOrType(title, type);
         return tBlogs;
     }
@@ -112,6 +112,13 @@ public class TBlogServiceImpl implements TBlogService {
     @Override
     public TBlog queryByBlog(String title) {
         return tBlogDao.queryByTitle(title);
+    }
+
+    @Override
+    public List<TBlog> queryAllInfo(Integer page, int size) {
+        PageHelper.startPage(page, size);
+        List<TBlog> tBlogs = tBlogDao.queryAllInfo();
+        return tBlogs;
     }
 
 }

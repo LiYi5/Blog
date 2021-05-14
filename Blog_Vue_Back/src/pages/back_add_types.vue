@@ -108,6 +108,7 @@ export default {
 </script>
 
 <style lang="less">
+
 .baw{
   background-color: white!important;
 }
@@ -129,5 +130,12 @@ export default {
 }
 .m-inline-block {
   display: inline-block;
+}
+@media screen and (max-width:768px){
+.foot_b{
+  width: 100%;
+  position: relative;
+  bottom: 0;
+}
 }
 </style>

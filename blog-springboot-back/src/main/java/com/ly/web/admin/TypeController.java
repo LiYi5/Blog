@@ -29,7 +29,6 @@ public class TypeController {
         apiResult.setData(tTypes);
         return apiResult;
     }
-
     @GetMapping("/totalTypes")
     public ApiResult types(){
         ApiResult apiResult = new ApiResult();
@@ -40,6 +39,15 @@ public class TypeController {
         return apiResult;
     }
 
+    @GetMapping("/TypeAndTotal")
+    public ApiResult typeAndTotal(){
+        ApiResult apiResult = new ApiResult();
+        List<TType> tTypes = tTypeService.getTypeAndTotal();
+        apiResult.setCode("1");
+        apiResult.setMsg("查询成功");
+        apiResult.setData(tTypes);
+        return apiResult;
+    }
 
     @PostMapping("/newType")
     public ApiResult postType(@RequestBody TType tType){

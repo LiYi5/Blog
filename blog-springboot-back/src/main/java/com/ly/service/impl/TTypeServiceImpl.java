@@ -94,4 +94,9 @@ public class TTypeServiceImpl implements TTypeService {
         return tTypeDao.queryAll(null);
     }
 
+    @Override
+    public List<TType> getTypeAndTotal() {
+        return tTypeDao.getTypeAndTotal();
+    }
+
 }

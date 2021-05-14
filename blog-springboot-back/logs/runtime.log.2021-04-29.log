@@ -1,0 +1,94 @@
+2021-04-29 16:28:33.381 [restartedMain] INFO  com.ly.BlogSpringbootBackApplication - Starting BlogSpringbootBackApplication using Java 1.8.0_211 on LAPTOP-JTN9SC6G with PID 18960 (C:\Users\ASUS\Desktop\Blog\blog-springboot-back\target\classes started by ASUS in C:\Users\ASUS\Desktop\Blog\blog-springboot-back)
+2021-04-29 16:28:33.385 [restartedMain] DEBUG com.ly.BlogSpringbootBackApplication - Running with Spring Boot v2.4.4, Spring v5.3.5
+2021-04-29 16:28:33.385 [restartedMain] INFO  com.ly.BlogSpringbootBackApplication - No active profile set, falling back to default profiles: default
+2021-04-29 16:28:33.454 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-04-29 16:28:33.454 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-04-29 16:28:35.904 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8089 (http)
+2021-04-29 16:28:35.915 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8089"]
+2021-04-29 16:28:35.915 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-04-29 16:28:35.916 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-29 16:28:36.010 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-04-29 16:28:36.010 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2546 ms
+2021-04-29 16:28:37.047 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-29 16:28:37.587 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-04-29 16:28:37.601 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8089"]
+2021-04-29 16:28:37.687 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8089 (http) with context path ''
+2021-04-29 16:28:37.705 [restartedMain] INFO  com.ly.BlogSpringbootBackApplication - Started BlogSpringbootBackApplication in 5.302 seconds (JVM running for 11.531)
+2021-04-29 16:29:42.951 [http-nio-8089-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-29 16:29:42.952 [http-nio-8089-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-04-29 16:29:42.956 [http-nio-8089-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2021-04-29 16:29:43.603 [http-nio-8089-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2021-04-29 16:29:44.726 [http-nio-8089-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2021-04-29 16:29:44.735 [http-nio-8089-exec-2] DEBUG com.ly.dao.TUserDao.findUserByUser - ==>  Preparing: SELECT * FROM t_user WHERE 1 = 1 and username = ? and password=? 
+2021-04-29 16:29:44.761 [http-nio-8089-exec-2] DEBUG com.ly.dao.TUserDao.findUserByUser - ==> Parameters: lire(String), 123456(String)
+2021-04-29 16:29:44.812 [http-nio-8089-exec-2] DEBUG com.ly.dao.TUserDao.findUserByUser - <==      Total: 1
+2021-04-29 16:29:45.472 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.queryAll - ==>  Preparing: select id, name from blog.t_type 
+2021-04-29 16:29:45.472 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.queryAll - ==> Parameters: 
+2021-04-29 16:29:45.474 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-04-29 16:29:45.475 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-04-29 16:29:45.476 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.queryAll - <==      Total: 9
+2021-04-29 16:29:45.491 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 9
+2021-04-29 16:29:45.588 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryBytitleOrType_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_type WHERE 1 = 1 AND t_blog.type_id = t_type.id 
+2021-04-29 16:29:45.589 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryBytitleOrType_COUNT - ==> Parameters: 
+2021-04-29 16:29:45.642 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryBytitleOrType_COUNT - <==      Total: 1
+2021-04-29 16:29:45.643 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryBytitleOrType - ==>  Preparing: SELECT * FROM t_blog,t_type WHERE 1 = 1 and t_blog.type_id = t_type.id LIMIT ? 
+2021-04-29 16:29:45.644 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryBytitleOrType - ==> Parameters: 8(Integer)
+2021-04-29 16:29:45.650 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryBytitleOrType - <==      Total: 8
+2021-04-29 16:29:48.634 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.queryAll - ==>  Preparing: select id, name from blog.t_type 
+2021-04-29 16:29:48.635 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.queryAll - ==> Parameters: 
+2021-04-29 16:29:48.637 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.queryAll - <==      Total: 9
+2021-04-29 16:29:48.654 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.queryAllByLimit - ==>  Preparing: select id, name from blog.t_type limit ?, ? 
+2021-04-29 16:29:48.655 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.queryAllByLimit - ==> Parameters: 0(Integer), 8(Integer)
+2021-04-29 16:29:48.657 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.queryAllByLimit - <==      Total: 8
+2021-04-29 16:29:49.392 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.queryAll - ==>  Preparing: select id, name from blog.t_type 
+2021-04-29 16:29:49.392 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-04-29 16:29:49.392 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-04-29 16:29:49.392 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.queryAll - ==> Parameters: 
+2021-04-29 16:29:49.394 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryBytitleOrType_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_type WHERE 1 = 1 AND t_blog.type_id = t_type.id 
+2021-04-29 16:29:49.394 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryBytitleOrType_COUNT - ==> Parameters: 
+2021-04-29 16:29:49.395 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.queryAll - <==      Total: 9
+2021-04-29 16:29:49.399 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryBytitleOrType_COUNT - <==      Total: 1
+2021-04-29 16:29:49.400 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryBytitleOrType - ==>  Preparing: SELECT * FROM t_blog,t_type WHERE 1 = 1 and t_blog.type_id = t_type.id LIMIT ? 
+2021-04-29 16:29:49.400 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryBytitleOrType - ==> Parameters: 8(Integer)
+2021-04-29 16:29:49.402 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 9
+2021-04-29 16:29:49.405 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryBytitleOrType - <==      Total: 8
+2021-04-29 16:29:49.836 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.queryAllByLimit - ==>  Preparing: select id, name from blog.t_type limit ?, ? 
+2021-04-29 16:29:49.837 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.queryAllByLimit - ==> Parameters: 0(Integer), 8(Integer)
+2021-04-29 16:29:49.837 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.queryAll - ==>  Preparing: select id, name from blog.t_type 
+2021-04-29 16:29:49.838 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.queryAll - ==> Parameters: 
+2021-04-29 16:29:49.839 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.queryAll - <==      Total: 9
+2021-04-29 16:29:49.840 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.queryAllByLimit - <==      Total: 8
+2021-04-29 16:29:51.589 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryBytitleOrType_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_type WHERE 1 = 1 AND t_blog.type_id = t_type.id 
+2021-04-29 16:29:51.590 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryBytitleOrType_COUNT - ==> Parameters: 
+2021-04-29 16:29:51.594 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryBytitleOrType_COUNT - <==      Total: 1
+2021-04-29 16:29:51.596 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryBytitleOrType - ==>  Preparing: SELECT * FROM t_blog,t_type WHERE 1 = 1 and t_blog.type_id = t_type.id LIMIT ? 
+2021-04-29 16:29:51.596 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-04-29 16:29:51.597 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.queryAll - ==>  Preparing: select id, name from blog.t_type 
+2021-04-29 16:29:51.597 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryBytitleOrType - ==> Parameters: 8(Integer)
+2021-04-29 16:29:51.598 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.queryAll - ==> Parameters: 
+2021-04-29 16:29:51.598 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-04-29 16:29:51.601 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.queryAll - <==      Total: 9
+2021-04-29 16:29:51.602 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryBytitleOrType - <==      Total: 8
+2021-04-29 16:29:51.606 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 9
+2021-04-29 16:29:53.821 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.queryAll - ==>  Preparing: select id, name from blog.t_type 
+2021-04-29 16:29:53.822 [http-nio-8089-exec-9] DEBUG com.ly.dao.TTypeDao.queryAllByLimit - ==>  Preparing: select id, name from blog.t_type limit ?, ? 
+2021-04-29 16:29:53.822 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.queryAll - ==> Parameters: 
+2021-04-29 16:29:53.822 [http-nio-8089-exec-9] DEBUG com.ly.dao.TTypeDao.queryAllByLimit - ==> Parameters: 0(Integer), 8(Integer)
+2021-04-29 16:29:53.824 [http-nio-8089-exec-9] DEBUG com.ly.dao.TTypeDao.queryAllByLimit - <==      Total: 8
+2021-04-29 16:29:53.824 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.queryAll - <==      Total: 9
+2021-04-29 16:29:54.973 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryBytitleOrType_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_type WHERE 1 = 1 AND t_blog.type_id = t_type.id 
+2021-04-29 16:29:54.975 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-04-29 16:29:54.975 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryBytitleOrType_COUNT - ==> Parameters: 
+2021-04-29 16:29:54.976 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-04-29 16:29:54.977 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryBytitleOrType_COUNT - <==      Total: 1
+2021-04-29 16:29:54.986 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.queryAll - ==>  Preparing: select id, name from blog.t_type 
+2021-04-29 16:29:54.986 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryBytitleOrType - ==>  Preparing: SELECT * FROM t_blog,t_type WHERE 1 = 1 and t_blog.type_id = t_type.id LIMIT ? 
+2021-04-29 16:29:54.987 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.queryAll - ==> Parameters: 
+2021-04-29 16:29:54.987 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryBytitleOrType - ==> Parameters: 8(Integer)
+2021-04-29 16:29:54.988 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.queryAll - <==      Total: 9
+2021-04-29 16:29:54.990 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryBytitleOrType - <==      Total: 8
+2021-04-29 16:29:54.990 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 9
+2021-04-29 19:00:13.019 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=20m24s984ms746µs100ns).
+2021-04-29 20:16:46.920 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10m32s866ms442µs700ns).
+2021-04-30 01:38:45.110 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3h1m55s752ms497µs100ns).
+2021-04-30 10:16:40.704 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=46s137ms915µs200ns).

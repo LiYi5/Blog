@@ -39,7 +39,6 @@ export default {
     },
     logout () {
       getLogout().then(res => {
-        console.log(res)
         if (res.code === '1') {
           this.$router.replace({path: '/'})
           history.pushState(null, null, document.URL)

@@ -26,13 +26,22 @@ public class BlogController {
     @GetMapping("/Blogs")
     public ApiResult blogs(@PathParam("page") Integer page, @PathParam("title") String title,@PathParam("type") String type){
         ApiResult apiResult = new ApiResult();
-        List<TBlog> tBlogs = tBlogService.queryBytitleOrType(page,title,type);
+        List<TBlog> tBlogs = tBlogService.queryBytitleOrType(page,8,title,type);
         apiResult.setCode("1");
         apiResult.setMsg("查询所有blog");
         apiResult.setData(tBlogs);
         return apiResult;
     }
 
+    @GetMapping("/Blog")
+    public ApiResult blog(@PathParam("page") Integer page){
+        ApiResult apiResult = new ApiResult();
+        List<TBlog> tBlogs = tBlogService.queryAllInfo(page,4);
+        apiResult.setCode("1");
+        apiResult.setMsg("查询所有blog");
+        apiResult.setData(tBlogs);
+        return apiResult;
+    }
     @GetMapping("/totalBlogs")
     public ApiResult types(){
         ApiResult apiResult = new ApiResult();
@@ -67,6 +76,9 @@ public class BlogController {
             SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             tBlog1.setCreatTime(Timestamp.valueOf(simpleDate.format(nodate)));
             tBlog1.setUpdateTime(Timestamp.valueOf(simpleDate.format(nodate)));
+            if(tBlog1.getFirstPicture() == null) {
+                tBlog1.setFirstPicture("https://img2.baidu.com/it/u=3806232450,3077456550&fm=26&fmt=auto&gp=0.jpg");
+            }
             TBlog insert = tBlogService.insert(tBlog1);
             if(insert != null){
                 apiResult.setCode("1");

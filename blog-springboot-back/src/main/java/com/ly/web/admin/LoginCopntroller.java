@@ -24,9 +24,7 @@ public class LoginCopntroller {
     @PostMapping("/login")
     public ApiResult login(@RequestBody TUser loginuser, HttpSession session){
         ApiResult apiResult = new ApiResult();
-        System.out.println(loginuser);
         TUser user = userService.checkkUser(loginuser.getUsername(),loginuser.getPassword());
-        System.out.println(user);
         if(user != null) {
             user.setPassword(null);
             session.setAttribute("user",user);

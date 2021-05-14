@@ -130,4 +130,11 @@ export default {
 .m-inline-block {
   display: inline-block;
 }
+@media screen and (max-width:768px){
+ .foot_b{
+  width: 100%;
+  position: relative;
+  bottom: 0;
+}
+}
 </style>

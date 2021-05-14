@@ -193,4 +193,7 @@
         FROM t_blog
         WHERE title=#{title}
     </select>
+    <select id="queryAllInfo" resultType="java.util.Map">
+    SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id
+    </select>
 </mapper>

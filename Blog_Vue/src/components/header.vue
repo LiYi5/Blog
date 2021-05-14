@@ -3,10 +3,10 @@
       <div class="ui container">
         <div class="ui inverted secondary menu stackable">
           <h2 class="ui teal header item">Blog</h2>
-          <a href="#" class="item" :class="{'active':this.$props.cur == '1', 'mobile-hid': menuClick === true}"><i class="home icon"></i> 首页</a>
-          <a href="#" class="item" :class="{'active':this.$props.cur == '2', 'mobile-hid': menuClick === true}"> <i class="idea icon"></i>分类</a>
-          <a href="#" class="item" :class="{'active':this.$props.cur == '3', 'mobile-hid': menuClick === true}"><i class="tags icon"></i>标签</a>
-          <a href="#" class="item" :class="{'active':this.$props.cur == '4', 'mobile-hid': menuClick === true}"><i class="tags icon"></i>归档</a>
+          <a href="#" class="item" :class="{'active':this.$props.cur === 1, 'mobile-hid': menuClick === true}"><i class="home icon"></i> 首页</a>
+          <a href="#" class="item" :class="{'active':this.$props.cur === 2, 'mobile-hid': menuClick === true}"> <i class="idea icon"></i>分类</a>
+          <a href="#" class="item" :class="{'active':this.$props.cur === 3, 'mobile-hid': menuClick === true}"><i class="tags icon"></i>标签</a>
+          <a href="#" class="item" :class="{'active':this.$props.cur === 4, 'mobile-hid': menuClick === true}"><i class="tags icon"></i>归档</a>
           <div class="middle item right input" :class="menuClick?'mobile-hid':''">
             <div class="ui icon inverted input">
               <input type="text" placeholder="Search...." />
@@ -22,7 +22,7 @@
 <script>
 export default {
   props: {
-    cur: String
+    cur: Number
   },
   data () {
     return {

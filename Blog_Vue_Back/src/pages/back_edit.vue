@@ -54,20 +54,13 @@
               <input type="text" v-model="curBlog.first_picture" placeholder="首图引用地址">
            </div>
          </div>
-         <!-- <div class="inline fields">
+         <div>
            <div class="field">
-             <div class="ui checkbox">
-               <input type="checkbox" id="recommend" name="recommend" checked class="hidden">
-               <label for="recommend">推荐</label>
+             <div class="ui left labeled input">
+               <textarea v-model="curBlog.flag" class="ui input mab"></textarea>
              </div>
            </div>
-           <div class="field">
-             <div class="ui checkbox">
-               <input type="checkbox" id="shareInfo" name="shareInfo" class="hidden">
-               <label for="shareInfo">转载</label>
-             </div>
-           </div>
-         </div> -->
+         </div>
          <div class="ui right aligned container">
            <button class="ui button" type="button" @click="back">返回</button>
            <button class="ui teal button" @click="submitBlog">{{this.$route.query.btnTagname}}</button>
@@ -116,6 +109,7 @@ export default {
           center: true
         })
       } else {
+        this.curBlog.userId = localStorage.getItem('userid')
         if (this.$refs.type.innerText !== '分类') {
           this.curBlog.typeId = this.finTypeidByname(this.$refs.type.innerText)
         }
@@ -186,7 +180,10 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
+.mab{
+  margin-bottom: 2em!important;
+}
 .baw{
   background-color: white!important;
 }

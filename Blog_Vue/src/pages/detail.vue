@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header></Header>
+    <Header :cur=1></Header>
     <div class="ui container blank-top left aligned">
       <div class="ui top attached segment">
         <div class="ui horizontal link list">

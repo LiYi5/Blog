@@ -37,6 +37,9 @@
             </if>
         </where>
     </select>
+    <select id="getTypeAndTotal" resultType="java.util.Map">
+        SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id
+    </select>
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">

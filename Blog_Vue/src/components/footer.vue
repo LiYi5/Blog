@@ -1,5 +1,5 @@
 <template>
-  <div class="ui inverted vertical segment m-padding-tb">
+  <div class="ui inverted vertical segment m-padding-tb foot_b">
       <div class="ui center aligned contaner lr-padd ">
           <div class="ui  stackable inverted divided grid">
               <div class="three wide column">
@@ -37,6 +37,11 @@ export default {
 </script>
 
 <style lang="less">
+.foot_b{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
 .m-padding-tb{
     padding-top: 3em!important;
     padding-bottom: 3em!important;

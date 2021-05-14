@@ -66,7 +66,8 @@ export default {
         obj.password = this.password
         postLogin(obj).then(res => {
           if (res.code === '1') {
-            localStorage.setItem('user', res.data)
+            localStorage.setItem('user', JSON.stringify(res.data))
+            localStorage.setItem('userid', res.data.id)
             this.$router.push({path: '/home'})
           } else {
             this.$message({
