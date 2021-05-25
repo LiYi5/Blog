@@ -8,10 +8,5 @@ import org.junit.jupiter.api.Test;
 @SpringBootTest
 class BlogSpringbootBackApplicationTests {
 
-	@Autowired
-	@Test
-	void contextLoads() {
-
-	}
 
 }

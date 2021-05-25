@@ -11,13 +11,15 @@ export default {
 </script>
 
 <style>
+body{
+  background:url('./assets/ald.jpg') repeat!important;
+  background-size: cover!important;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  background:url('./assets/ald.jpg') no-repeat;
-  background-size: 100% 100%;
 }
 </style>

@@ -59,4 +59,5 @@ public interface TTypeService {
     List<TType> getAllType();
 
     List<TType> getTypeAndTotal();
+
 }

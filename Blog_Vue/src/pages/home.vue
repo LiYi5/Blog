@@ -22,7 +22,7 @@
             </div>
             <!-- 中间内容 -->
             <div class="ui attached segment">
-                <div class="ui padding-con-lr vertical segment con-po" v-for="item in blogList" :key="item.id">
+                <div class="ui padding-con-lr vertical segment showhand" v-for="item in blogList" :key="item.id" @click="goDetail(item)">
                     <div class="ui mobile reversed stackable grid">
                         <div class="eleven wide column">
                             <h3 class="ui header">
@@ -33,7 +33,7 @@
                                 <div class="left aligned eleven wide column">
                                     <div class="ui mini horizontal link list">
                                         <div class="item">
-                                            <img :src="item.avatar" alt="" class="ui avatar image">
+                                            <img :src=item.avatar alt="" class="ui avatar image">
                                             <div class="content"><a class="header">{{item.username}}</a></div>
                                         </div>
                                         <div class="item">
@@ -98,20 +98,8 @@
                     </div>
                   </div>
                  </div>
-                  <div class="ui segment left aligned">
-                    <a target="_blank" class="black-text">用户故事（USer Story）</a>
-                  </div>
-                  <div class="ui segment left aligned">
-                    <a target="_blank" class="black-text">用户故事（USer Story）</a>
-                  </div>
-                  <div class="ui segment left aligned">
-                    <a target="_blank" class="black-text">用户故事（USer Story）</a>
-                  </div>
-                  <div class="ui segment left aligned">
-                    <a target="_blank" class="black-text">用户故事（USer Story）</a>
-                  </div>
-                  <div class="ui segment left aligned">
-                    <a target="_blank" class="black-text">用户故事（USer Story）</a>
+                  <div class="ui segment left aligned" v-for="item in blogList" :key="item.id">
+                    <a target="_blank" class="black-text">{{item.title}}</a>
                   </div>
             </div>
           </div>
@@ -147,6 +135,9 @@ export default {
     this.getTypelist()
   },
   methods: {
+    goDetail (item) {
+      this.$router.push({path: '/Detail', query: {blogInfo: JSON.stringify(item), curindex: 1}})
+    },
     rTime (date) {
       var d = new Date(date).toJSON()
       return new Date(new Date(d) + 8 * 3600 * 1000).toISOString().replace(/T/g, ' ').replace(/\.[\d]{3}Z/, '')
@@ -182,6 +173,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.showhand{
+  cursor: pointer;
+}
 .foot_b{
   width: 100%;
   position: absolute;

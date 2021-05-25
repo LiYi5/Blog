@@ -3,6 +3,7 @@ package com.ly.web.admin;
 import com.google.gson.Gson;
 import com.ly.entity.ApiResult;
 import com.ly.entity.TBlog;
+import com.ly.entity.TType;
 import com.ly.service.TBlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -114,6 +115,17 @@ public class BlogController {
             apiResult.setCode("0");
             apiResult.setMsg("参数错误");
         }
+        return  apiResult;
+    }
+
+
+    @PostMapping("/getBlogforType")
+    public ApiResult getBlogforType(@RequestBody TType tType){
+        List<TBlog> allBlog = tBlogService.queryByName(tType.getName());
+        ApiResult apiResult = new ApiResult();
+        apiResult.setCode("1");
+        apiResult.setMsg("按分类查询成功！");
+        apiResult.setData(allBlog);
         return  apiResult;
     }
 }

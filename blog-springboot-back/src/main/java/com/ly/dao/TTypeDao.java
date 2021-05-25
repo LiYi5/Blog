@@ -68,4 +68,5 @@ public interface TTypeDao {
     int deleteById(Long id);
 
     List<TType> getTypeAndTotal();
+
 }

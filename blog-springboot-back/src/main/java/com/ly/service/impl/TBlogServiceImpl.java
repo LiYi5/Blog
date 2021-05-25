@@ -121,4 +121,9 @@ public class TBlogServiceImpl implements TBlogService {
         return tBlogs;
     }
 
+    @Override
+    public List<TBlog> queryByName(String name) {
+        return tBlogDao.queryBlogByName(name);
+    }
+
 }

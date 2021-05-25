@@ -69,4 +69,6 @@ public interface TBlogService {
     TBlog queryByBlog(String title);
 
     List<TBlog> queryAllInfo(Integer page, int i);
+
+    List<TBlog> queryByName(String name);
 }

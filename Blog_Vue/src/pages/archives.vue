@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header :cur=4></Header>
-   <div>
+   <div class="m-main-padded-tb">
       <div class="ui container blank-top left aligned">
          <div class="ui top attached segment">
               <div class="ui middle aligned two column grid">
@@ -55,7 +55,9 @@
             </div>
       </div>
    </div>
-    <Footer></Footer>
+    <div class="foot_b">
+      <Footer></Footer>
+    </div>
   </div>
 </template>
 
@@ -70,9 +72,20 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less" scoped>
+.foot_b{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
 .padding-con-lr{
     padding: 1em 1em !important;
+}
+.m-main-padded-tb {
+  padding: 8em 0 !important;
+}
+.m-padded-tb-mini {
+  padding: 0 0.2em;
 }
 .con-m-label{
   margin: 0 0.5em 1em 0.5em!important;
@@ -83,5 +96,12 @@ export default {
 .blank-top {
   margin: 3em auto;
   max-width: 60em !important;
+}
+@media screen and (max-width:768px){
+.foot_b{
+  width: 100%;
+  position: relative;
+  bottom: 0;
+}
 }
 </style>

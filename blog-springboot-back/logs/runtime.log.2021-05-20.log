@@ -1,0 +1,1236 @@
+2021-05-20 19:31:25.780 [restartedMain] INFO  com.ly.BlogSpringbootBackApplication - Starting BlogSpringbootBackApplication using Java 1.8.0_211 on LAPTOP-JTN9SC6G with PID 14564 (C:\Users\ASUS\Desktop\Blog\blog-springboot-back\target\classes started by ASUS in C:\Users\ASUS\Desktop\Blog\blog-springboot-back)
+2021-05-20 19:31:25.782 [restartedMain] DEBUG com.ly.BlogSpringbootBackApplication - Running with Spring Boot v2.4.4, Spring v5.3.5
+2021-05-20 19:31:25.782 [restartedMain] INFO  com.ly.BlogSpringbootBackApplication - No active profile set, falling back to default profiles: default
+2021-05-20 19:31:25.866 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-05-20 19:31:25.866 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-05-20 19:31:27.519 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8089 (http)
+2021-05-20 19:31:27.527 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8089"]
+2021-05-20 19:31:27.528 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-20 19:31:27.528 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-05-20 19:31:27.598 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-20 19:31:27.598 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1731 ms
+2021-05-20 19:31:28.156 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-20 19:31:28.503 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-05-20 19:31:28.512 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8089"]
+2021-05-20 19:31:28.542 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8089 (http) with context path ''
+2021-05-20 19:31:28.551 [restartedMain] INFO  com.ly.BlogSpringbootBackApplication - Started BlogSpringbootBackApplication in 3.499 seconds (JVM running for 9.402)
+2021-05-20 19:57:00.986 [http-nio-8089-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-20 19:57:00.986 [http-nio-8089-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-05-20 19:57:00.988 [http-nio-8089-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2021-05-20 19:57:01.184 [http-nio-8089-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2021-05-20 19:57:01.910 [http-nio-8089-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2021-05-20 19:57:01.917 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 19:57:01.917 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 19:57:01.919 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 19:57:01.939 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 19:57:01.939 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 19:57:01.939 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 19:57:01.969 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 19:57:01.970 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 19:57:01.973 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 19:57:01.973 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 19:57:01.974 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 19:57:01.978 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 19:57:06.673 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 19:57:06.673 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 19:57:06.674 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 19:57:06.674 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 19:57:06.674 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 19:57:06.674 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 19:57:06.675 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 19:57:06.676 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 19:57:06.679 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 19:57:06.680 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 19:57:06.680 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 19:57:06.684 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 19:58:53.391 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 19:58:53.391 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 19:58:53.391 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 19:58:53.391 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 19:58:53.394 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 19:58:53.395 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 19:58:53.395 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 19:58:53.395 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 19:58:53.396 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 19:58:53.396 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 19:58:53.397 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 19:58:53.399 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 19:59:04.582 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 19:59:04.582 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 19:59:04.583 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 19:59:04.583 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 19:59:04.583 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 19:59:04.583 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 19:59:04.586 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 19:59:04.586 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 19:59:04.586 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 19:59:04.587 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 19:59:04.588 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 19:59:04.591 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 19:59:09.618 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 19:59:09.618 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 19:59:09.619 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 19:59:09.619 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 19:59:09.619 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 19:59:09.620 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 19:59:09.622 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 19:59:09.622 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 19:59:09.623 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 19:59:09.623 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 19:59:09.623 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 19:59:09.626 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 19:59:14.503 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 19:59:14.504 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 19:59:14.506 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 19:59:14.507 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 19:59:14.508 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 19:59:14.508 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 19:59:14.508 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 19:59:14.509 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 19:59:14.509 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 19:59:14.510 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 19:59:14.510 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 19:59:14.512 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 19:59:19.933 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 19:59:19.933 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 19:59:19.934 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 19:59:19.934 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 19:59:19.935 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 19:59:19.935 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 19:59:19.935 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 19:59:19.936 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 19:59:19.936 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 19:59:19.936 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 19:59:19.938 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 19:59:19.938 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 19:59:27.213 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 19:59:27.213 [http-nio-8089-exec-9] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 19:59:27.213 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 19:59:27.213 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 19:59:27.213 [http-nio-8089-exec-9] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 19:59:27.214 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 19:59:27.214 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 19:59:27.214 [http-nio-8089-exec-9] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 19:59:27.215 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 19:59:27.215 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 19:59:27.216 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 19:59:27.218 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 19:59:30.377 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 19:59:30.377 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 19:59:30.377 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 19:59:30.377 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 19:59:30.377 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 19:59:30.378 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 19:59:30.378 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 19:59:30.378 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 19:59:30.379 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 19:59:30.379 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 19:59:30.379 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 19:59:30.382 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 19:59:55.099 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 19:59:55.100 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 19:59:55.101 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 19:59:55.102 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 19:59:55.102 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 19:59:55.102 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 19:59:55.102 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 19:59:55.103 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 19:59:55.104 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 19:59:55.104 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 19:59:55.104 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 19:59:55.106 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:00:25.742 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:00:25.742 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:00:25.743 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:00:25.743 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:00:25.743 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:00:25.744 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:00:25.744 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:00:25.745 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:00:25.745 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:00:25.745 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:00:25.746 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:00:25.747 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:01:09.147 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:01:09.148 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:01:09.149 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:01:09.149 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:01:09.150 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:01:09.151 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:01:09.154 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:01:09.155 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:01:09.156 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:01:09.156 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:01:09.156 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:01:09.157 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:01:46.651 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:01:46.652 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:01:46.652 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:01:46.652 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:01:46.653 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:01:46.653 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:01:46.653 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:01:46.653 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:01:46.654 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:01:46.654 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:01:46.655 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:01:46.657 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:01:48.529 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:01:48.529 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:01:48.529 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:01:48.529 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:01:48.529 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:01:48.529 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:01:48.530 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:01:48.530 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:01:48.531 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:01:48.531 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:01:48.532 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:01:48.532 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:02:09.495 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:02:09.496 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:02:09.495 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:02:09.496 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:02:09.496 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:02:09.497 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:02:09.498 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:02:09.498 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:02:09.498 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:02:09.498 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:02:09.499 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:02:09.501 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:02:21.231 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:02:21.232 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:02:21.233 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:02:21.232 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:02:21.233 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:02:21.234 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:02:21.234 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:02:21.234 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:02:21.235 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:02:21.235 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:02:21.236 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:02:21.236 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:02:32.164 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:02:32.163 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:02:32.164 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:02:32.164 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:02:32.165 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:02:32.166 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:02:32.166 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:02:32.166 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:02:32.168 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:02:32.174 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:02:32.174 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:02:32.175 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:02:49.916 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:02:49.917 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:02:49.918 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:02:49.918 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:02:49.918 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:02:49.919 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:02:49.919 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:02:49.919 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:02:49.919 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:02:49.920 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:02:49.920 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:02:49.920 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:03:49.799 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:03:49.799 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:03:49.799 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:03:49.799 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:03:49.799 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:03:49.799 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:03:49.800 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:03:49.800 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:03:49.800 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:03:49.801 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:03:49.801 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:03:49.803 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:04:16.013 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:04:16.013 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:04:16.014 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:04:16.014 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:04:16.015 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:04:16.015 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:04:16.015 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:04:16.016 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:04:16.016 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:04:16.016 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:04:16.016 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:04:16.018 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:09:45.075 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:09:45.075 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:09:45.075 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:09:45.076 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:09:45.076 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:09:45.076 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:09:45.077 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:09:45.077 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:09:45.077 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:09:45.077 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:09:45.077 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:09:45.079 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:09:47.537 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:09:47.538 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:09:47.539 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:09:47.539 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:09:47.539 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:09:47.540 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:09:47.540 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:09:47.540 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:09:47.540 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:09:47.541 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:09:47.542 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:09:47.543 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:10:21.368 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:10:21.369 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:10:21.369 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:10:21.370 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:10:21.370 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:10:21.372 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:10:21.372 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:10:21.372 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:10:21.372 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:10:21.372 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:10:21.373 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:10:21.374 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:10:44.831 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:10:44.832 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:10:44.833 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:10:44.834 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:10:44.834 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:10:44.834 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:10:44.835 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:10:44.836 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:10:44.835 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:10:44.837 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:10:44.837 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:10:44.838 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:11:18.106 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:11:18.106 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:11:18.107 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:11:18.107 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:11:18.107 [http-nio-8089-exec-9] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:11:18.107 [http-nio-8089-exec-9] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:11:18.108 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:11:18.108 [http-nio-8089-exec-9] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:11:18.108 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:11:18.108 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:11:18.109 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:11:18.111 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:11:23.488 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:11:23.489 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:11:23.489 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:11:23.489 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:11:23.489 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:11:23.489 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:11:23.489 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:11:23.490 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:11:23.490 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:11:23.490 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:11:23.491 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:11:23.492 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:11:24.567 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:11:24.568 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:11:24.568 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:11:24.568 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:11:24.569 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:11:24.569 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:11:24.570 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:11:24.570 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:11:24.570 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:11:24.570 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:11:24.571 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:11:24.571 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:11:28.250 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:11:28.251 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:11:28.252 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:11:28.252 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:11:28.252 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:11:28.254 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:11:28.257 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:11:28.257 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:11:28.258 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:11:28.258 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:11:28.259 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:11:28.259 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:12:45.620 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:12:45.620 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:12:45.620 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:12:45.620 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:12:45.620 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:12:45.621 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:12:45.621 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:12:45.621 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:12:45.622 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:12:45.622 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:12:45.622 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:12:45.623 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:12:59.761 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:12:59.762 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:12:59.763 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:12:59.764 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:12:59.765 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:12:59.766 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:12:59.769 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:12:59.770 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:12:59.769 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:12:59.770 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:12:59.771 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:12:59.772 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:13:01.312 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:13:01.313 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:13:01.314 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:13:01.315 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:13:01.315 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:13:01.316 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:13:01.319 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:13:01.319 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:13:01.319 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:13:01.319 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:13:01.320 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:13:01.321 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:13:02.776 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:13:02.776 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:13:02.778 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:13:02.779 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:13:02.779 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:13:02.780 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:13:02.781 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:13:02.782 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:13:02.782 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:13:02.782 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:13:02.783 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:13:02.783 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:13:03.919 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:13:03.920 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:13:03.921 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:13:03.922 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:13:03.922 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:13:03.924 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:13:03.924 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:13:03.924 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:13:03.925 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:13:03.925 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:13:03.925 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:13:03.926 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:13:04.936 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:13:04.937 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:13:04.937 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:13:04.938 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:13:04.938 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:13:04.939 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:13:04.942 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:13:04.942 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:13:04.942 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:13:04.942 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:13:04.943 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:13:04.943 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:13:06.391 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:13:06.391 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:13:06.392 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:13:06.392 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:13:06.393 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:13:06.393 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:13:06.393 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:13:06.394 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:13:06.395 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:13:06.395 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:13:06.395 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:13:06.397 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:13:07.606 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:13:07.607 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:13:07.608 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:13:07.609 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:13:07.609 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:13:07.610 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:13:07.613 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:13:07.614 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:13:07.614 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:13:07.614 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:13:07.615 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:13:07.615 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:13:12.014 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:13:12.014 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:13:12.015 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:13:12.016 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:13:12.016 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:13:12.017 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:13:12.020 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:13:12.021 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:13:12.022 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:13:12.022 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:13:12.022 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:13:12.024 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:13:13.431 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:13:13.431 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:13:13.432 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:13:13.432 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:13:13.432 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:13:13.432 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:13:13.433 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:13:13.433 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:13:13.433 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:13:13.434 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:13:13.435 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:13:13.436 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:13:13.927 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:13:13.927 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:13:13.928 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:13:13.928 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:13:13.929 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:13:13.929 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:13:13.929 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:13:13.929 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:13:13.929 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:13:13.930 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:13:13.930 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:13:13.930 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:13:14.307 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:13:14.307 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:13:14.308 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:13:14.308 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:13:14.308 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:13:14.310 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:13:14.312 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:13:14.313 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:13:14.314 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:13:14.314 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:13:14.314 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:13:14.318 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:13:14.649 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:13:14.649 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:13:14.649 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:13:14.649 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:13:14.649 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:13:14.649 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:13:14.650 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:13:14.650 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:13:14.650 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:13:14.650 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:13:14.650 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:13:14.652 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:13:15.009 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:13:15.009 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:13:15.009 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:13:15.009 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:13:15.009 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:13:15.009 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:13:15.010 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:13:15.010 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:13:15.010 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:13:15.010 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:13:15.010 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:13:15.012 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:13:16.211 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:13:16.212 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:13:16.212 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:13:16.213 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:13:16.213 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:13:16.215 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:13:16.216 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:13:16.216 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:13:16.216 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:13:16.216 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:13:16.217 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:13:16.217 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:14:23.648 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:14:23.648 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:14:23.648 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:14:23.648 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:14:23.648 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:14:23.648 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:14:23.649 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:14:23.649 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:14:23.649 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:14:23.650 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:14:23.650 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:14:23.651 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:14:26.196 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:14:26.196 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:14:26.197 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:14:26.197 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:14:26.197 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:14:26.197 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:14:26.197 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:14:26.197 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:14:26.198 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:14:26.198 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:14:26.198 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:14:26.199 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:14:40.358 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:14:40.358 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:14:40.358 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:14:40.358 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:14:40.358 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:14:40.358 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:14:40.359 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:14:40.359 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:14:40.359 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:14:40.359 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:14:40.360 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:14:40.361 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:15:12.751 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:15:12.751 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:15:12.752 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:15:12.753 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:15:12.753 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:15:12.755 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:15:12.756 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:15:12.756 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:15:12.757 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:15:12.758 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:15:12.758 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:15:12.762 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:15:14.357 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:15:14.357 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:15:14.358 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:15:14.359 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:15:14.359 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:15:14.360 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:15:14.362 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:15:14.363 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:15:14.364 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:15:14.365 [http-nio-8089-exec-9] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:15:14.365 [http-nio-8089-exec-9] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:15:14.367 [http-nio-8089-exec-9] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:15:15.475 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:15:15.475 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:15:15.475 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:15:15.476 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:15:15.476 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:15:15.476 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:15:15.476 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:15:15.476 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:15:15.477 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:15:15.477 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:15:15.478 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:15:15.479 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:16:01.450 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:16:01.451 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:16:01.451 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:16:01.451 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:16:01.452 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:16:01.452 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:16:01.452 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:16:01.452 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:16:01.453 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:16:01.453 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:16:01.453 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:16:01.454 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:16:08.382 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:16:08.382 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:16:08.382 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:16:08.382 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:16:08.382 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:16:08.382 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:16:08.383 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:16:08.383 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:16:08.383 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:16:08.383 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:16:08.383 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:16:08.384 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:16:10.557 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:16:10.557 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:16:10.558 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:16:10.558 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:16:10.558 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:16:10.558 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:16:10.559 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:16:10.559 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:16:10.559 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:16:10.560 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:16:10.560 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:16:10.561 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:16:17.134 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:16:17.134 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:16:17.134 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:16:17.135 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:16:17.135 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:16:17.135 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:16:17.135 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:16:17.135 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:16:17.135 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:16:17.135 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:16:17.135 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:16:17.137 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:16:18.946 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:16:18.947 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:16:18.946 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:16:18.947 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:16:18.947 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:16:18.947 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:16:18.948 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:16:18.948 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:16:18.948 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:16:18.948 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:16:18.949 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:16:18.950 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:16:25.946 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:16:25.947 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:16:25.947 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:16:25.947 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:16:25.948 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:16:25.948 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:16:25.948 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:16:25.948 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:16:25.950 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:16:25.950 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:16:25.950 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:16:25.951 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:17:49.051 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:17:49.052 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:17:49.052 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:17:49.053 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:17:49.053 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:17:49.053 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:17:49.053 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:17:49.053 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:17:49.053 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:17:49.054 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:17:49.054 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:17:49.055 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:17:52.998 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:17:52.999 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:17:52.999 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:17:53.000 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:17:53.000 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:17:53.002 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:17:53.004 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:17:53.004 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:17:53.004 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:17:53.004 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:17:53.005 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:17:53.005 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:17:54.421 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:17:54.421 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:17:54.422 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:17:54.423 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:17:54.423 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:17:54.424 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:17:54.427 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:17:54.427 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:17:54.427 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:17:54.427 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:17:54.428 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:17:54.428 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:17:55.910 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:17:55.910 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:17:55.911 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:17:55.912 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:17:55.912 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:17:55.913 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:17:55.915 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:17:55.915 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:17:55.915 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:17:55.916 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:17:55.916 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:17:55.916 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:53:54.865 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:53:54.866 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:53:54.873 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:53:54.873 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:53:54.873 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:53:54.874 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:53:54.874 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:53:54.874 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:53:54.874 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:53:54.876 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:53:54.878 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:53:54.878 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:53:56.412 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:53:56.413 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:53:56.413 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:53:56.414 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:53:56.415 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:53:56.415 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:53:56.416 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:53:56.416 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:53:56.416 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:53:56.416 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:53:56.416 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:53:56.417 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:53:58.523 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:53:58.524 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:53:58.525 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:53:58.526 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:53:58.526 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:53:58.526 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:53:58.526 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:53:58.527 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:53:58.527 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:53:58.528 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:53:58.528 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:53:58.529 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:54:00.080 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:54:00.081 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:54:00.082 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:54:00.082 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:54:00.082 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:54:00.083 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:54:00.085 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:54:00.085 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:54:00.085 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:54:00.085 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:54:00.085 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:54:00.085 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:54:01.535 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:54:01.536 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:54:01.539 [http-nio-8089-exec-9] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:54:01.539 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:54:01.539 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:54:01.540 [http-nio-8089-exec-9] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:54:01.540 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:54:01.540 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:54:01.540 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:54:01.541 [http-nio-8089-exec-9] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:54:01.542 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:54:01.542 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:54:03.394 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:54:03.395 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:54:03.397 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:54:03.398 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:54:03.398 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:54:03.398 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:54:03.398 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:54:03.399 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:54:03.399 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:54:03.399 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:54:03.399 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:54:03.400 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-20 20:56:39.029 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-20 20:56:39.029 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-20 20:56:39.030 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-20 20:56:39.030 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-20 20:56:39.030 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-20 20:56:39.031 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-20 20:56:39.035 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-20 20:56:39.035 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-20 20:56:39.036 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-20 20:56:39.037 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-20 20:56:39.037 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-20 20:56:39.037 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-21 13:24:03.644 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15h40m59s913ms8µs200ns).
+2021-05-21 15:49:36.598 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-21 15:49:36.598 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 15:49:36.600 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 15:49:36.600 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-21 15:49:36.601 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-21 15:49:36.601 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-21 15:49:36.604 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-21 15:49:36.604 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 15:49:36.604 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-21 15:49:36.605 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-21 15:49:36.606 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-21 15:49:36.607 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-21 15:51:09.318 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-21 15:51:09.321 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-21 15:51:09.321 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-21 15:51:09.321 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-21 15:51:09.322 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-21 15:51:09.323 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-21 15:51:09.323 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-21 15:51:09.322 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 15:51:09.323 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 15:51:09.323 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-21 15:51:09.325 [http-nio-8089-exec-7] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-21 15:51:09.326 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 15:56:44.709 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-21 15:56:44.710 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 15:56:44.710 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-21 15:56:44.710 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-21 15:56:44.710 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 15:56:44.710 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-21 15:56:44.711 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-21 15:56:44.712 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-21 15:56:44.712 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-21 15:56:44.712 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-21 15:56:44.714 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 15:56:44.714 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-21 15:56:58.669 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-21 15:56:58.670 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-21 15:56:58.671 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-21 15:56:58.671 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-21 15:56:58.671 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-21 15:56:58.673 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-21 15:56:58.675 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-21 15:56:58.677 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-21 15:56:58.677 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 15:56:58.677 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 15:56:58.678 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 15:56:58.678 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-21 16:18:17.945 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-21 16:18:17.945 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:18:17.945 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-21 16:18:17.946 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-21 16:18:17.946 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-21 16:18:17.946 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:18:17.947 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-21 16:18:17.948 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-21 16:18:17.948 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:18:17.949 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-21 16:18:17.949 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-21 16:18:17.951 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-21 16:18:20.400 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-21 16:18:20.401 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-21 16:18:20.402 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-21 16:18:20.402 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-21 16:18:20.402 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-21 16:18:20.404 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-21 16:18:20.409 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:18:20.410 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:18:20.410 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-21 16:18:20.410 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-21 16:18:20.410 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:18:20.411 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-21 16:20:58.255 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-21 16:20:58.256 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-21 16:20:58.257 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-21 16:20:58.258 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-21 16:20:58.258 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-21 16:20:58.258 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-21 16:20:58.258 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-21 16:20:58.259 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-21 16:20:58.259 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-21 16:20:58.260 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:20:58.261 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:20:58.262 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:22:31.735 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:22:31.736 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:22:31.738 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:22:35.055 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:22:35.055 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:22:35.056 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:23:06.827 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:23:06.828 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:23:06.831 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:23:30.564 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-21 16:23:30.565 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-21 16:23:30.565 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-21 16:23:30.566 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-21 16:23:30.567 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-21 16:23:30.567 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:23:30.568 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:23:30.570 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:23:30.570 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-21 16:23:30.571 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-21 16:23:30.571 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-21 16:23:30.573 [http-nio-8089-exec-4] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-21 16:23:42.817 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-21 16:23:42.818 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-21 16:23:42.819 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-21 16:23:42.819 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-21 16:23:42.820 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-21 16:23:42.820 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:23:42.821 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:23:42.821 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-21 16:23:42.821 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-21 16:23:42.821 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:23:42.821 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-21 16:23:42.823 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-21 16:23:49.970 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-21 16:23:49.970 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:23:49.971 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-21 16:23:49.971 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-21 16:23:49.971 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:23:49.971 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-21 16:23:49.972 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-21 16:23:49.972 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:23:49.972 [http-nio-8089-exec-1] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-21 16:23:49.972 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-21 16:23:49.972 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-21 16:23:49.973 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-21 16:24:11.908 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-21 16:24:11.909 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-21 16:24:11.909 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:24:11.909 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-21 16:24:11.909 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:24:11.909 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-21 16:24:11.910 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:24:11.910 [http-nio-8089-exec-9] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-21 16:24:11.912 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-21 16:24:11.912 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-21 16:24:11.913 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-21 16:24:11.913 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-21 16:24:13.184 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:24:13.185 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:24:13.185 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:24:22.631 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:24:22.632 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:24:22.633 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:24:24.036 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:24:24.037 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:24:24.037 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:24:25.610 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:24:25.611 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:24:25.611 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:24:32.177 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:24:32.177 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:24:32.178 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:24:36.916 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:24:36.916 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:24:36.917 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:24:52.632 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:24:52.632 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:24:52.633 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:25:07.224 [http-nio-8089-exec-9] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:25:07.225 [http-nio-8089-exec-9] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:25:07.225 [http-nio-8089-exec-9] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:25:19.440 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:25:19.440 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:25:19.441 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:25:27.709 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:25:27.709 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:25:27.710 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:25:41.334 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:25:41.335 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:25:41.335 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:26:35.218 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:26:35.218 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:26:35.219 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:26:36.745 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:26:36.746 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:26:36.747 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:26:41.861 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:26:41.862 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:26:41.863 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:27:12.842 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:27:12.842 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:27:12.843 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:28:39.739 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-21 16:28:39.739 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-21 16:28:39.739 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-21 16:28:39.739 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-21 16:28:39.739 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:28:39.740 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-21 16:28:39.740 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:28:39.740 [http-nio-8089-exec-8] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-21 16:28:39.740 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:28:39.740 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-21 16:28:39.740 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-21 16:28:39.741 [http-nio-8089-exec-5] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-21 16:28:41.904 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:28:41.905 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:28:41.906 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:30:47.603 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:30:47.604 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:30:47.604 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:31:07.421 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:31:07.421 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:31:07.422 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:31:09.700 [http-nio-8089-exec-9] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:31:09.701 [http-nio-8089-exec-9] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:31:09.702 [http-nio-8089-exec-9] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:31:21.273 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:31:21.274 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:31:21.274 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:31:22.491 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:31:22.492 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:31:22.492 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:31:24.913 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:31:24.913 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:31:24.914 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:32:03.520 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:32:03.520 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:32:03.521 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:32:18.706 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:32:18.707 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:32:18.708 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:32:26.380 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:32:26.381 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:32:26.381 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:32:27.305 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:32:27.306 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:32:27.306 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:32:30.811 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:32:30.811 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:32:30.813 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:32:33.309 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:32:33.309 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:32:33.310 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:32:53.589 [http-nio-8089-exec-9] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:32:53.589 [http-nio-8089-exec-9] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:32:53.589 [http-nio-8089-exec-9] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:33:16.823 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:33:16.824 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:33:16.825 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:33:18.545 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:33:18.546 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:33:18.546 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:33:25.747 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:33:25.748 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:33:25.749 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:33:28.332 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-21 16:33:28.333 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-21 16:33:28.333 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-21 16:33:28.334 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-21 16:33:28.333 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:33:28.334 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-21 16:33:28.334 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:33:28.334 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-21 16:33:28.334 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-21 16:33:28.335 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:33:28.335 [http-nio-8089-exec-6] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-21 16:33:28.335 [http-nio-8089-exec-2] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-21 16:33:30.068 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:33:30.069 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:33:30.069 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:34:27.284 [http-nio-8089-exec-9] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:34:27.284 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAll - ==>  Preparing: select id, appreciation, commenttabled, content, creat_time, first_picture, flag, published, recommend, share_statement, title, update_time, views, type_id, user_id from blog.t_blog 
+2021-05-21 16:34:27.285 [http-nio-8089-exec-9] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:34:27.285 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==>  Preparing: SELECT count(0) FROM t_blog, t_user, t_type WHERE t_blog.user_id = t_user.id AND t_blog.type_id = t_type.id 
+2021-05-21 16:34:27.285 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAll - ==> Parameters: 
+2021-05-21 16:34:27.285 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - ==> Parameters: 
+2021-05-21 16:34:27.285 [http-nio-8089-exec-9] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:34:27.286 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo_COUNT - <==      Total: 1
+2021-05-21 16:34:27.286 [http-nio-8089-exec-10] DEBUG com.ly.dao.TBlogDao.queryAll - <==      Total: 3
+2021-05-21 16:34:27.286 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==>  Preparing: SELECT * from t_blog,t_user,t_type WHERE t_blog.user_id=t_user.id and t_blog.type_id=t_type.id LIMIT ? 
+2021-05-21 16:34:27.286 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo - ==> Parameters: 4(Integer)
+2021-05-21 16:34:27.287 [http-nio-8089-exec-3] DEBUG com.ly.dao.TBlogDao.queryAllInfo - <==      Total: 3
+2021-05-21 16:34:30.629 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:34:30.629 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:34:30.630 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:34:32.959 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:34:32.960 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:34:32.961 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:48:01.276 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:48:01.277 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:48:01.278 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:48:09.324 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:48:09.325 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:48:09.326 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:48:58.048 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:48:58.049 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:48:58.050 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:48:58.054 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:48:58.054 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:48:58.055 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:48:58.059 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:48:58.059 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:48:58.060 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:49:07.084 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:49:07.085 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:49:07.085 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:49:20.477 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:49:20.477 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:49:20.478 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:49:24.847 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:49:24.848 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:49:24.849 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:49:30.152 [http-nio-8089-exec-9] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:49:30.152 [http-nio-8089-exec-9] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:49:30.153 [http-nio-8089-exec-9] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:49:34.262 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:49:34.262 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:49:34.263 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:49:40.070 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:49:40.070 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:49:40.071 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:49:42.270 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:49:42.271 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:49:42.271 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:49:43.553 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:49:43.554 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:49:43.555 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:49:45.534 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:49:45.535 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:49:45.536 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:49:50.174 [http-nio-8089-exec-9] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:49:50.175 [http-nio-8089-exec-9] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:49:50.176 [http-nio-8089-exec-9] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:50:04.721 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:50:04.722 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:50:04.723 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:50:29.893 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:50:29.894 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:50:29.894 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:50:31.795 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:50:31.795 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:50:31.796 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:50:33.183 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:50:33.183 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:50:33.184 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:50:37.531 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:50:37.532 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:50:37.532 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:50:51.489 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:50:51.489 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:50:51.490 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:50:55.162 [http-nio-8089-exec-9] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:50:55.162 [http-nio-8089-exec-9] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:50:55.163 [http-nio-8089-exec-9] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:50:59.252 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:50:59.252 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:50:59.253 [http-nio-8089-exec-4] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:51:02.774 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:51:02.774 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:51:02.775 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:51:06.694 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:51:06.695 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:51:06.695 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:51:09.445 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:51:09.445 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:51:09.448 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:51:10.298 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:51:10.298 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:51:10.299 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:51:10.573 [http-nio-8089-exec-1] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: "Type"]
+2021-05-21 16:51:14.982 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:51:14.982 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:51:14.983 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:51:14.998 [http-nio-8089-exec-9] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: "Type"]
+2021-05-21 16:51:23.640 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:51:23.641 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:51:23.641 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:51:23.655 [http-nio-8089-exec-4] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: "Type"]
+2021-05-21 16:51:30.286 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:51:30.287 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:51:30.289 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:51:30.297 [http-nio-8089-exec-5] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: "Type"]
+2021-05-21 16:51:37.257 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:51:37.257 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:51:37.259 [http-nio-8089-exec-7] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:51:37.275 [http-nio-8089-exec-6] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: "Type"]
+2021-05-21 16:51:39.347 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:51:39.347 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:51:39.348 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:51:39.365 [http-nio-8089-exec-1] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: "Type"]
+2021-05-21 16:51:39.376 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:51:39.376 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:51:39.377 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:51:39.392 [http-nio-8089-exec-9] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: "Type"]
+2021-05-21 16:51:49.835 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:51:49.836 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:51:49.838 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:51:50.011 [http-nio-8089-exec-4] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: "Type"]
+2021-05-21 16:52:12.979 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:52:12.979 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:52:12.980 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:52:15.964 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:52:15.965 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:52:15.965 [http-nio-8089-exec-5] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:52:19.407 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:52:19.407 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:52:19.408 [http-nio-8089-exec-6] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:52:22.813 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:52:22.813 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:52:22.814 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:52:24.734 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:52:24.734 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:52:24.735 [http-nio-8089-exec-1] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:52:27.883 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:52:27.884 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:52:27.884 [http-nio-8089-exec-10] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:52:59.478 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:52:59.478 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:52:59.479 [http-nio-8089-exec-3] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:52:59.796 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:52:59.796 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:52:59.797 [http-nio-8089-exec-8] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:52:59.864 [http-nio-8089-exec-6] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
+2021-05-21 16:52:59.864 [http-nio-8089-exec-7] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
+2021-05-21 16:53:01.478 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==>  Preparing: SELECT COUNT(1) AS "count",t_type.name from t_type,t_blog WHERE t_type.id=t_blog.type_id group by t_type.id 
+2021-05-21 16:53:01.479 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - ==> Parameters: 
+2021-05-21 16:53:01.479 [http-nio-8089-exec-2] DEBUG com.ly.dao.TTypeDao.getTypeAndTotal - <==      Total: 2
+2021-05-21 16:53:01.658 [http-nio-8089-exec-1] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]

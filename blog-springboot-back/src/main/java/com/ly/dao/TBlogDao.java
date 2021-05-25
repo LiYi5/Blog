@@ -79,4 +79,6 @@ public interface TBlogDao {
     TBlog queryByTitle(String title);
 
     List<TBlog> queryAllInfo();
+
+    List<TBlog> queryBlogByName(String name);
 }
